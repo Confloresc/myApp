@@ -10,7 +10,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
@@ -18,6 +18,11 @@ const routes: Routes = [
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
   {
+
+    path: 'scanner',
+    loadChildren: () => import('./scanner/scanner.module').then( m => m.ScannerPageModule)
+  },
+
     path: 'menuprof',
     loadChildren: () => import('./menuprof/menuprof.module').then( m => m.MenuprofPageModule)
   },
@@ -34,6 +39,7 @@ const routes: Routes = [
 
   { path: 'cursos', component: CursosPage },
   { path: 'asitencia', component: AsistenciaPage }
+
 ];
 
 @NgModule({
