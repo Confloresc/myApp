@@ -8,13 +8,21 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },  {
+    path: 'prof-registro-asistencia',
+    loadChildren: () => import('./prof-registro-asistencia/prof-registro-asistencia.module').then( m => m.ProfRegistroAsistenciaPageModule)
   },
+  {
+    path: 'codigo-qr',
+    loadChildren: () => import('./codigo-qr/codigo-qr.module').then( m => m.CodigoQRPageModule)
+  },
+
 ];
 
 @NgModule({
