@@ -19,8 +19,24 @@ const routes: Routes = [
 
   },
   {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+  },
+  {
     path: 'codigo-qr',
     loadChildren: () => import('./codigo-qr/codigo-qr.module').then( m => m.CodigoQRPageModule)
+  },
+  {
+    path: 'prof-registro-asistencia',
+    loadChildren: () => import('./prof-registro-asistencia/prof-registro-asistencia.module').then( m => m.ProfRegistroAsistenciaPageModule)
+  },
+  {
+    path: 'profesor',
+    loadChildren: () => import('./profesor/profesor.module').then( m => m.ProfesorPageModule)
   },
   {
     path: 'scanner',

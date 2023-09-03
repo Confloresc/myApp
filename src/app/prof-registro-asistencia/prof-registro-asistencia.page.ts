@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-prof-registro-asistencia',
@@ -8,12 +8,8 @@ import { Router } from '@angular/router';
 })
 export class ProfRegistroAsistenciaPage {
 
-  constructor(private router: Router) { }
+  constructor() { }
 
-  generarQR(){
-    this.router.navigate(['/codigo-qr']);
-  }
-
-  
+   
 
 }
