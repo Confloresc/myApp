@@ -43,7 +43,7 @@ export class LoginPage {
 
       // Redirige al usuario a la página adecuada después del inicio de sesión
       if (this.user.email === 'profesor@duoc.cl') {
-        this.router.navigate(['/profesor']); // Redirige a la página del profesor
+        this.router.navigate(['/menuprof']); // Redirige a la página del profesor
       } else {
         // Redirige a la página predeterminada (por ejemplo, scanner)
         this.router.navigate(['/scanner']);
