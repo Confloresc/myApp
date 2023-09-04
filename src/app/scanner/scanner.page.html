@@ -1,8 +1,14 @@
 <ion-header>
   <ion-toolbar class="custom-toolbar">
+    <ion-buttons slot="start" (click)="goToLoginPage()">
+      <ion-button>
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
     <ion-title>Alumno</ion-title>
   </ion-toolbar>
 </ion-header>
+
 
 
 <!-- Franja amarilla -->
@@ -22,14 +28,16 @@
 
   <!-- Franja negra en el pie de página -->
   <div class="black-footer">
-    <ion-button fill="outline" size="large" shape="round" color="light">
+    <ion-button id="present-alert" fill="outline" size="large" shape="round" color="light">
       <ion-text style="color: black;">o</ion-text>
     </ion-button>
+    <ion-alert
+      trigger="present-alert"
+      header="ASISTENCIA REGISTRADA CON EXITO"
+      [buttons]="alertButtons"
+    ></ion-alert>
+
   </div>
   
-  
-  
-  
-  
-</ion-content>
 
+</ion-content>
