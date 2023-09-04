@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-scanner',
@@ -6,10 +7,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./scanner.page.scss'],
 })
 export class ScannerPage implements OnInit {
+  alertButtons: string[] = [];
 
-  constructor() { }
+  constructor(private alertController: AlertController, private navCtrl: NavController) { }
 
-  ngOnInit() {
+  async presentAlert() {
+    const alert = await this.alertController.create({
+
+    });
+
+    await alert.present();
   }
 
+  goToLoginPage() {
+    // Utiliza NavController para navegar a la página de login
+    this.navCtrl.navigateForward('/login'); // Asegúrate de que '/login' sea la ruta correcta a tu página de login
+  }
+
+  ngOnInit() {
+    // Código relacionado con ngOnInit
+  }
 }
