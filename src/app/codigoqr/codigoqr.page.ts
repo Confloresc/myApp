@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { AlertController, NavController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-scanner',
-  templateUrl: './scanner.page.html',
-  styleUrls: ['./scanner.page.scss'],
+  selector: 'app-codigoqr',
+  templateUrl: './codigoqr.page.html',
+  styleUrls: ['./codigoqr.page.scss'],
 })
 
-export class ScannerPage implements OnInit {
+export class CodigoqrPage implements OnInit {
   alertButtons: string[] = [];
 
   constructor(private alertController: AlertController, private navCtrl: NavController) { }
@@ -20,12 +20,12 @@ export class ScannerPage implements OnInit {
     await alert.present();
   }
 
-  goToLoginPage() {
-    // Utiliza NavController para navegar a la página de login
-    this.navCtrl.navigateForward('/login'); // Asegúrate de que '/login' sea la ruta correcta a tu página de login
+  goToMenuprofPage() {
+    
+    this.navCtrl.navigateForward('/Menuprof');
   }
 
   ngOnInit() {
-    // Código relacionado con ngOnInit
+
   }
 }
