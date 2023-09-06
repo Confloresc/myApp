@@ -1,0 +1,38 @@
+ion-content {
+    --ion-background-color: #f4f4f4; // Cambia el color de fondo según tus preferencias     
+}
+.title{
+    background-color: #000342;
+    color:white;
+}
+
+.titulo1{
+    background-color: rgb(255, 196, 0);
+}
+.subTitulo1{
+    padding: 3%;
+    color:white;
+    font-size: x-large;
+    margin-left: 10%;
+}
+.texto1{
+    padding-top: 5%;
+    margin-left: 8%;
+}
+.subTexto1{
+    padding-top: 4%;
+}
+.calendario{
+   margin-left: 8%;
+   margin-top: 10%;
+   margin-bottom: 5%;   
+}
+
+ion-datetime{
+    background-color:white;
+}
+
+.btn{
+    text-align: center;
+    margin-top: 10%;
+}

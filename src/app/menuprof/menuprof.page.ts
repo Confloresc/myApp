@@ -9,6 +9,7 @@ export class MenuprofPage implements OnInit {
 
   constructor() { }
 
+  
   ngOnInit() {
   }
 
