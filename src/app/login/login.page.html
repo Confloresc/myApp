@@ -4,49 +4,49 @@
 
 <ion-content [fullscreen]="true" class="custom-content">
   <ion-header collapse="condense">
-
-    </ion-header>
+  </ion-header>
 
   <form (ngSubmit)="login()" #loginForm="ngForm" class="custom-input" style="margin-top: 40px;">
-    
-
-
-    <ion-item color="ligth" class="custom-input">
+    <ion-item color="light" class="custom-input">
       <ion-label position="floating">Correo Electrónico</ion-label>
       <ion-input
         type="email"
         name="email"
         [(ngModel)]="user.email"
         required
-        email
+        [pattern]="validEmailPattern"
       ></ion-input>
     </ion-item>
 
-    <ion-item color="ligth" class="custom-input">
-      <ion-label position="floating" >Contraseña</ion-label>
+    <ion-item color="light" class="custom-input">
+      <ion-label position="floating">Contraseña</ion-label>
       <ion-input
         type="password"
         name="password"
         [(ngModel)]="user.password"
-        required
-        minlength="6">
-      </ion-input>
+        [minlength]="9"
+        [maxlength]="12"
+        [required]="true"
+        (input)="validatePassword()"
+      ></ion-input>
     </ion-item>
 
     <ion-button
-    type="submit"
-    expand="full"
-    [disabled]="!loginForm.valid"
-    color="warning">
-    Iniciar Sesión
-  </ion-button>
-  
-  <div class="forgot-password-link">
-    <a href="#">¿Olvidaste tu contraseña?</a>
-  </div>
+      type="submit"
+      expand="full"
+      [disabled]="!loginForm.valid || !isPasswordValid"
+      color="warning"
+      routerLink="/scanner"
+    >
+      Iniciar Sesión
+    </ion-button>
 
-  
-</form>
+    <div class="forgot-password-link">
+      <a href="#">¿Olvidaste tu contraseña?</a>
+    </div>
 
-
+    <div *ngIf="loginForm.submitted && !validateUser(user)" class="error-message">
+      Credenciales incorrectas. Por favor, inténtelo de nuevo.
+    </div>
+  </form>
 </ion-content>

@@ -1,0 +1,44 @@
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title class="title">Cursos</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="titulo1">
+    <div class="subTitulo1">Asistencia</div>
+  </div>
+
+  <div class="texto1">
+    <div class="subTexto1"><strong>Sede:</strong> Antonio Varas</div>
+    <div class="subTexto1"><strong>Selecciona el dia para registrar la asistencia</strong></div>
+  </div>
+
+
+
+   <div class="calendario">
+    <ion-datetime></ion-datetime>
+   </div>
+  
+
+  <ion-accordion-group>
+  <ion-accordion value="first">
+    <ion-item slot="header" color="light">
+      <ion-label>Selecciona un Curso</ion-label>
+    </ion-item>
+    <div class="ion-padding" slot="content">19:00 - 20:20<br>Ingles<br>Sala V104</div>
+    <div class="ion-padding" slot="content">20:31 - 21:20<br>Arquitectura<br>Sala T504</div>
+    <div class="ion-padding" slot="content">21:21 - 22:30<br>Portafolio<br>Sala V308</div>
+  </ion-accordion>
+  </ion-accordion-group>
+  <div class="btn">
+      <ion-button routerLink="/codigo-qr" color="primary">Generar QR</ion-button>
+  </div>
+</ion-content>
+
+
+
+
+ 
+
+
