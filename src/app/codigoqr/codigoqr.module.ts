@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { CodigoQRPageRoutingModule } from './codigo-qr-routing.module';
+import { CodigoqrPageRoutingModule } from './codigoqr-routing.module';
 
-import { CodigoQRPage } from './codigo-qr.page';
+import { CodigoqrPage } from './codigoqr.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CodigoQRPageRoutingModule
+    CodigoqrPageRoutingModule
   ],
-  declarations: [CodigoQRPage]
+  declarations: [CodigoqrPage]
 })
-export class CodigoQRPageModule {}
+export class CodigoqrPageModule {}

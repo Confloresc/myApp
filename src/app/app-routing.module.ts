@@ -27,8 +27,8 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
-    path: 'codigo-qr',
-    loadChildren: () => import('./codigo-qr/codigo-qr.module').then( m => m.CodigoQRPageModule)
+    path: 'codigoqr',
+    loadChildren: () => import('./codigoqr/codigoqr.module').then( m => m.CodigoqrPageModule)
   },
   {
     path: 'prof-registro-asistencia',
