@@ -47,7 +47,20 @@ ion-datetime{
     background-color:white;
 }
 
-.btn{
+.titleListaCursos{
     text-align: center;
-    margin-top: 10%;
+    
+}
+
+.listaCursos{
+   display: inline-block;
+   padding: 10px 20px; /* Ajusta el espaciado interno según tus necesidades */
+   background-color: #007bff; /* Color de fondo del botón */
+   color: #fff; /* Color del texto del botón */
+   border: 1px solid #007bff; /* Borde del botón */
+   border-radius: 5px; /* Borde redondeado */
+   width: 80%;
+   margin-left: 10%;
+   margin-top: 3%;
+   
 }

@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { AlertController, NavController } from '@ionic/angular';
-
+import { Component, OnInit,  } from '@angular/core';
 
 @Component({
   selector: 'app-menuprof',
