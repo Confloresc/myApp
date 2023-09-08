@@ -10,12 +10,14 @@ import { AlertController, NavController } from '@ionic/angular';
 
 export class CodigoQRPage implements OnInit {
   alertButtons: string[] = [];
+
   
   constructor(
     private route: ActivatedRoute,
     private alertController: AlertController,
     private navCtrl: NavController
   ) {}
+
 
   id!: number;
   nombre!: string;
@@ -25,8 +27,10 @@ export class CodigoQRPage implements OnInit {
 
   async presentAlert() {
     const alert = await this.alertController.create({
+
       // Configura tu alerta aquí si es necesario.
     });
+
 
     await alert.present();
   }
@@ -46,3 +50,7 @@ export class CodigoQRPage implements OnInit {
     });
   }
 }
+
+
+
+  

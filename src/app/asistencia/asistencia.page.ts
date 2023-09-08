@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { NavController } from '@ionic/angular';
 
 @Component({
@@ -8,6 +9,7 @@ import { NavController } from '@ionic/angular';
 })
 
 export class AsistenciaPage implements OnInit {
+
   constructor(private navCtrl: NavController) { }
 
   goToCursosPage() {
