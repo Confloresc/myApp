@@ -2,7 +2,7 @@
 // scanner.page.ts
 import { Component } from '@angular/core';
 import { AlertController, NavController } from '@ionic/angular';
-
+import { ActivatedRoute } from '@angular/router'; 
 
 @Component({
   selector: 'app-scanner',
@@ -10,10 +10,16 @@ import { AlertController, NavController } from '@ionic/angular';
   styleUrls: ['./scanner.page.scss'],
 })
 
+
 export class ScannerPage {
+  nombre: string | undefined;
+  correoElectronico: string | undefined;
 
-
-  constructor(private alertController: AlertController, private navCtrl: NavController) { }
+  constructor(
+    private alertController: AlertController,
+    private navCtrl: NavController,
+    private route: ActivatedRoute 
+  ) {}
 
   async presentAlert() {
     const alert = await this.alertController.create({
@@ -36,10 +42,14 @@ export class ScannerPage {
   }
 
   goToLoginPage() {
-    // Utiliza NavController para navegar a la página de login
-    this.navCtrl.navigateForward('/login'); // Asegúrate de que '/login' sea la ruta correcta a tu página de login
-  }
+    this.navCtrl.navigateBack('/login');}
 
+  ngOnInit() {
+    this.route.queryParams.subscribe(params => {
+      this.nombre = params['nombre'];
+      this.correoElectronico = params['correoElectronico'];
+    });
+  }
 
 }
 

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Usuario } from 'usuario.model';
-import { Router } from '@angular/router'; // Importa el Router
+import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginPage {
   isPasswordValid: boolean = false;
   validEmailPattern: string = '^(profesor@duoc.cl|alumno@duoc.cl)$';
 
-  constructor(private router: Router) {} // Inyecta el servicio Router
+  constructor(private router: Router, private navCtrl: NavController) {}
 
   validateUser(user: Usuario): boolean {
     if (
@@ -43,10 +44,20 @@ export class LoginPage {
 
       // Redirige al usuario a la página adecuada después del inicio de sesión
       if (this.user.email === 'profesor@duoc.cl') {
-        this.router.navigate(['/menuprof']); // Redirige a la página del profesor
+        this.navCtrl.navigateForward('/menuprof', {
+          queryParams: {
+            nombre: 'Luis Gonzalez',
+            correoElectronico: this.user.email,
+          },
+        });
       } else {
         // Redirige a la página predeterminada (por ejemplo, scanner)
-        this.router.navigate(['/scanner']);
+        this.navCtrl.navigateForward('/scanner', {
+          queryParams: {
+            nombre: 'Laura Mejia',
+            correoElectronico: this.user.email,
+          },
+        });
       }
     } else {
       console.log('Credenciales incorrectas');

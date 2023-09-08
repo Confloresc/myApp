@@ -1,35 +1,33 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController, NavController } from '@ionic/angular';
-
+import { ActivatedRoute } from '@angular/router';
+import { NavController } from '@ionic/angular'; // Asegúrate de importar NavController si aún no lo has hecho.
 
 @Component({
   selector: 'app-menuprof',
   templateUrl: './menuprof.page.html',
   styleUrls: ['./menuprof.page.scss'],
 })
-
-
 export class MenuprofPage implements OnInit {
-  alertButtons: string[] = [];
+  nombre: string | undefined;
+  correoElectronico: string | undefined;
 
-  constructor(private alertController: AlertController, private navCtrl: NavController) { }
+  constructor(private route: ActivatedRoute, private navCtrl: NavController) {}
 
-  async presentAlert() {
-    const alert = await this.alertController.create({
+  ngOnInit() {
+    // Obtener los parámetros pasados desde la página anterior.
+    this.route.queryParams.subscribe(params => {
+      this.nombre = params['nombre'];
+      this.correoElectronico = params['correoElectronico'];
 
-      // Configura tu alerta aquí
+      // Ahora puedes utilizar 'nombre' y 'correoElectronico' como desees en esta página.
     });
-
-    await alert.present();
   }
 
   goToMenuprofPage() {
     // Navegar hacia atrás en la historia de navegación
-    this.navCtrl.back();
-  }
-
-  ngOnInit() {
-    // Código de inicialización si es necesario
+    this.navCtrl.navigateBack('/login'); // Asegúrate de que '/login' sea la ruta correcta a tu página de login
 
   }
+
+  // Resto de tu código y lógica de la página MenuprofPage
 }
