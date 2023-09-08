@@ -10,7 +10,7 @@ import { AlertController, NavController } from '@ionic/angular';
 export class CursosPage implements OnInit {
   alertButtons: string[] = [];
 
-  constructor(private alertController: AlertController, private navCtrl: NavController) { }
+  constructor() { }
 
   async presentAlert() {
     const alert = await this.alertController.create({
