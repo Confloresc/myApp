@@ -33,7 +33,7 @@ constructor(private router: Router, alertController: AlertController, private na
 
   goToMenuprofPage() {
       
-    this.navCtrl.navigateForward('/Menuprof');
+    this.navCtrl.back();
   }
 
   ngOnInit() {

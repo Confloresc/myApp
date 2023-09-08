@@ -22,8 +22,9 @@ export class CursosPage implements OnInit {
 
   goToMenuprofPage() {
     
-    this.navCtrl.navigateForward('/Menuprof');
+    this.navCtrl.back();
   }
+
 
   ngOnInit() {
 

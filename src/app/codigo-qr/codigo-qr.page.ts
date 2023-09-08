@@ -10,10 +10,12 @@ import { AlertController, NavController } from '@ionic/angular';
 
 export class CodigoQRPage implements OnInit {
   alertButtons: string[] = [];
-  alertController: any;
   
-  constructor(private route: ActivatedRoute, alertController: AlertController, private navCtrl: NavController) { }
-
+  constructor(
+    private route: ActivatedRoute,
+    private alertController: AlertController,
+    private navCtrl: NavController
+  ) {}
 
   id!: number;
   nombre!: string;
@@ -23,34 +25,24 @@ export class CodigoQRPage implements OnInit {
 
   async presentAlert() {
     const alert = await this.alertController.create({
-
+      // Configura tu alerta aquí si es necesario.
     });
 
     await alert.present();
   }
 
-  goToMenuprofPage() {
-    
-    this.navCtrl.navigateForward('/Menuprof');
+  goToProfRegistroAsistenciaPage() {
+    this.navCtrl.back();
   }
-
 
   ngOnInit() {
     // Recupera los datos de los queryParams
-    this.route.queryParams.subscribe(params => {
-    this.id = params['id'];
-    this.nombre = params['nombre'];
-    this.seccion = params['seccion'];
-    this.sala = params['sala'];
-    this.horario = params['horario'];
-  });
-  
+    this.route.queryParams.subscribe((params) => {
+      this.id = params['id'];
+      this.nombre = params['nombre'];
+      this.seccion = params['seccion'];
+      this.sala = params['sala'];
+      this.horario = params['horario'];
+    });
+  }
 }
-
-
-
-}
-
-
-
-  
