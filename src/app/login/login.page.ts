@@ -50,8 +50,9 @@ export class LoginPage {
             correoElectronico: this.user.email,
           },
         });
+
       } else {
-        // Redirige a la página predeterminada (por ejemplo, scanner)
+        // Redirige a la página predeterminada (por ejemplo, scanner) con los mismos datos
         this.navCtrl.navigateForward('/scanner', {
           queryParams: {
             nombre: 'Laura Mejia',

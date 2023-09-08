@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { NavController } from '@ionic/angular'; // Asegúrate de importar NavController si aún no lo has hecho.
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-menuprof',
@@ -14,20 +14,45 @@ export class MenuprofPage implements OnInit {
   constructor(private route: ActivatedRoute, private navCtrl: NavController) {}
 
   ngOnInit() {
-    // Obtener los parámetros pasados desde la página anterior.
+    // Obtener los parámetros pasados desde la página anterior usando queryParams.
     this.route.queryParams.subscribe(params => {
       this.nombre = params['nombre'];
       this.correoElectronico = params['correoElectronico'];
-
-      // Ahora puedes utilizar 'nombre' y 'correoElectronico' como desees en esta página.
     });
   }
 
-  goToMenuprofPage() {
-    // Navegar hacia atrás en la historia de navegación
-    this.navCtrl.navigateBack('/login'); // Asegúrate de que '/login' sea la ruta correcta a tu página de login
-
+  navigateAsistencia() {
+    // Verifica si tienes datos válidos antes de navegar.
+    if (this.nombre && this.correoElectronico) {
+      this.navCtrl.navigateForward('/prof-registro-asistencia', {
+        queryParams: {
+          nombre: this.nombre,
+          correoElectronico: this.correoElectronico,
+        },
+      });
+    } else {
+      // Puedes manejar un escenario donde los datos no están disponibles.
+      console.error('Faltan datos de usuario para navegar a prof-registro-asistencia');
+    }
   }
 
-  // Resto de tu código y lógica de la página MenuprofPage
+  navigateAsistenciareg() {
+    // Verifica si tienes datos válidos antes de navegar.
+    if (this.nombre && this.correoElectronico) {
+      this.navCtrl.navigateForward('/cursos', {
+        queryParams: {
+          nombre: this.nombre,
+          correoElectronico: this.correoElectronico,
+        },
+      });
+    } else {
+      // Puedes manejar un escenario donde los datos no están disponibles.
+      console.error('Faltan datos de usuario para navegar a prof-registro-asistencia');
+    }
+  }
+  goToMenuprofPage() {
+    // Navegar hacia atrás en la historia de navegación
+    this.navCtrl.navigateForward('/login');
+
+  }
 }
