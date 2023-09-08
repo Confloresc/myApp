@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Router } from '@angular/router';
 import { AlertController, NavController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-asistencia',
@@ -13,12 +15,14 @@ export class AsistenciaPage implements OnInit {
   nombre: string | undefined;
   correoElectronico: string | undefined;
 
+
   constructor(private router: Router, alertController: AlertController, private navCtrl: NavController,private route: ActivatedRoute) { }
 
   goToCursosPage() {
     
     this.navCtrl.back();
   }
+
 
   ngOnInit() {
     // Obtener los parámetros pasados desde la página anterior.

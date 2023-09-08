@@ -13,11 +13,13 @@ export class MenuprofPage implements OnInit {
 
   constructor(private route: ActivatedRoute, private navCtrl: NavController) {}
 
+
   ngOnInit() {
     // Obtener los parámetros pasados desde la página anterior usando queryParams.
     this.route.queryParams.subscribe(params => {
       this.nombre = params['nombre'];
       this.correoElectronico = params['correoElectronico'];
+
     });
   }
 
@@ -51,8 +53,10 @@ export class MenuprofPage implements OnInit {
     }
   }
   goToMenuprofPage() {
+
     // Navegar hacia atrás en la historia de navegación
     this.navCtrl.navigateForward('/login');
+
 
   }
 }
