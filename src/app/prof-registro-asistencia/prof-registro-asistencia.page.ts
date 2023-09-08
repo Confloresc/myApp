@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./prof-registro-asistencia.page.scss'],
 })
 export class ProfRegistroAsistenciaPage {
+  navCtrl: any;
 
 constructor(private router: Router) { }
 
@@ -29,4 +30,8 @@ constructor(private router: Router) { }
 
   }
 
+  goToLoginPage() {
+    // Utiliza NavController para navegar a la página de login
+    this.router.navigate(['/menuprof']);
+  }
 }
