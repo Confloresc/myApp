@@ -39,6 +39,9 @@ ion-button {
     --margin-left:0;
 
   }
+  ion-button.button:hover {
+    background-color: #120f41; /* Nuevo color de fondo al pasar el mouse */
+  }
 
   .title{
     background-color: #000342;

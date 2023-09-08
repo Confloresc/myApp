@@ -19,7 +19,7 @@ ion-header::after {
 ion-button {
 
 
-    --background-activated: #eaeaea;
+    --background-activated: #837c7c;
     --background-focused: #eaeaea;
   
     --color: rgb(0, 0, 0);
@@ -36,6 +36,10 @@ ion-button {
     --padding-top: 10px;
     --padding-bottom: 10px;
 
+  }
+
+  ion-button.button:hover {
+    background-color: #120f41; /* Nuevo color de fondo al pasar el mouse */
   }
 
   .title{
