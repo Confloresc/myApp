@@ -56,7 +56,7 @@ const routes: Routes = [
   },
 
   { path: 'cursos', component: CursosPage },
-  { path: 'asitencia', component: AsistenciaPage }
+  { path: 'asistencia', component: AsistenciaPage }
 
 ];
 
