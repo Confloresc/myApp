@@ -18,12 +18,15 @@ export class CursosPage implements OnInit {
     });
 
     await alert.present();
+
   }
 
   goToMenuprofPage() {
     
-    this.navCtrl.navigateForward('/Menuprof');
+    this.navCtrl.back();
   }
+
+
 
   ngOnInit() {
 

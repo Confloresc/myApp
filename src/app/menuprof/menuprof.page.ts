@@ -17,17 +17,19 @@ export class MenuprofPage implements OnInit {
   async presentAlert() {
     const alert = await this.alertController.create({
 
+      // Configura tu alerta aquí
     });
 
     await alert.present();
   }
 
   goToMenuprofPage() {
-    
-    this.navCtrl.navigateForward('/Menuprof');
+    // Navegar hacia atrás en la historia de navegación
+    this.navCtrl.back();
   }
 
   ngOnInit() {
+    // Código de inicialización si es necesario
 
   }
 }
