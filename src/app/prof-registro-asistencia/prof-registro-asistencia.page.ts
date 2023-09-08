@@ -33,7 +33,9 @@ constructor(private router: Router, alertController: AlertController, private na
 
   goToMenuprofPage() {
       
+
     this.navCtrl.back();
+
   }
 
   ngOnInit() {
