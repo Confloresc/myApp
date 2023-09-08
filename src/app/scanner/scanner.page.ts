@@ -10,6 +10,7 @@ import { AlertController, NavController } from '@ionic/angular';
   styleUrls: ['./scanner.page.scss'],
 })
 
+
 export class ScannerPage {
 
 

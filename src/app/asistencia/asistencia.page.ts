@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertController, NavController } from '@ionic/angular';
 
 import { NavController } from '@ionic/angular';
 
@@ -9,6 +10,7 @@ import { NavController } from '@ionic/angular';
 })
 
 export class AsistenciaPage implements OnInit {
+  alertButtons: string[] = [];
 
   constructor(private navCtrl: NavController) { }
 
@@ -16,6 +18,7 @@ export class AsistenciaPage implements OnInit {
     
     this.navCtrl.back();
   }
+
 
   ngOnInit() {
 

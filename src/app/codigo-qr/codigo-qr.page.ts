@@ -11,7 +11,7 @@ import { AlertController, NavController } from '@ionic/angular';
 export class CodigoQRPage implements OnInit {
   alertButtons: string[] = [];
 
-  
+
   constructor(
     private route: ActivatedRoute,
     private alertController: AlertController,
@@ -28,7 +28,7 @@ export class CodigoQRPage implements OnInit {
   async presentAlert() {
     const alert = await this.alertController.create({
 
-      // Configura tu alerta aquí si es necesario.
+
     });
 
 
@@ -38,6 +38,7 @@ export class CodigoQRPage implements OnInit {
   goToProfRegistroAsistenciaPage() {
     this.navCtrl.back();
   }
+
 
   ngOnInit() {
     // Recupera los datos de los queryParams
@@ -51,6 +52,3 @@ export class CodigoQRPage implements OnInit {
   }
 }
 
-
-
-  
