@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController, NavController } from '@ionic/angular';
 
+
 @Component({
   selector: 'app-scanner',
   templateUrl: './scanner.page.html',
   styleUrls: ['./scanner.page.scss'],
 })
+
 export class ScannerPage implements OnInit {
   alertButtons: string[] = [];
 
@@ -28,3 +30,5 @@ export class ScannerPage implements OnInit {
     // Código relacionado con ngOnInit
   }
 }
+
+

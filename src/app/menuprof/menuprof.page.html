@@ -1,22 +1,19 @@
-
-
-
 <ion-content [fullscreen]="true">
   <ion-header>
     <ion-toolbar class="custom-toolbar">
-      <ion-buttons slot="start" (click)="goToLoginPage()">
+      <ion-buttons slot="start" (click)="goToMenuprofPage()">
         <ion-button>
           <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
         </ion-button>
       </ion-buttons>
-      <ion-title>Alumno</ion-title>
+      <ion-title>Menu profesor</ion-title>
     </ion-toolbar>
   </ion-header>
-  
-  
-  
-  <!-- Franja amarilla -->
-  <div class="yellow-stripe"> </div>
+
+  <div class="titulo1">
+    <div class="subTitulo1">Asistencia</div>
+  </div>
+
   <div class="texto1">
     <div class="subTexto1"><strong>Sede:</strong> Antonio Varas</div>
   </div>
@@ -25,12 +22,10 @@
   <ion-button class="texto-izquierda" fill="clear" expand="full" routerLink="/prof-registro-asistencia">
     <ion-icon name="square" style="color: rgb(239, 232, 155);"></ion-icon>
     Registrar asistencia
-    <ion-icon name="chevron-forward-outline"></ion-icon>
   </ion-button>
   <ion-button class="texto-izquierda" fill="clear" expand="full" routerLink="/cursos">
     <ion-icon name="square" style="color: rgb(239, 232, 155);"></ion-icon>
     Revisar asistencia
-    <ion-icon name="chevron-forward-outline"></ion-icon>
   </ion-button>
 </div>
   </ion-content>
