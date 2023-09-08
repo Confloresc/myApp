@@ -32,12 +32,7 @@ constructor(private router: Router, alertController: AlertController, private na
 
   }
 
-  goToMenuprofPage() {
-      
 
-    this.navCtrl.back();
-
-  }
 
   ngOnInit() {
     // Obtener los parámetros pasados desde la página anterior.
@@ -62,7 +57,12 @@ constructor(private router: Router, alertController: AlertController, private na
     });
 
   }
+  goToCursosPage() {
+      
 
+    this.navCtrl.back();
+
+  }
 }
 
 
