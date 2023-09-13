@@ -1,7 +1,14 @@
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title class="title"><a>Cursos</a></ion-title>
+  <ion-header>
+    <ion-toolbar class="custom-toolbar">
+
+      <ion-buttons slot="start" (click)="goToCursosPage()">
+
+        <ion-button>
+          <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>Asistencia</ion-title>
     </ion-toolbar>
   </ion-header>
 

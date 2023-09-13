@@ -1,3 +1,4 @@
+<!-- scanner.page.html -->
 <ion-header>
   <ion-toolbar class="custom-toolbar">
     <ion-buttons slot="start" (click)="goToLoginPage()">
@@ -9,11 +10,13 @@
   </ion-toolbar>
 </ion-header>
 
-
-
-<!-- Franja amarilla -->
-<div class="yellow-stripe"> </div>
-
+<div class="titulo1">
+  <div class="user-info">
+    <p>Nombre: {{ nombre }}</p>
+    <p>Correo Electrónico: {{ correoElectronico }}</p>
+  </div>
+  <div class="subTitulo1">Asistencia</div>
+</div>
 
 <ion-content [fullscreen]="true">
 
@@ -21,23 +24,15 @@
     <p class="banner-text">Sede: Antonio Varas</p>
   </div>
 
-
-        <ion-img src="assets/scanner.png">
-        </ion-img>
-
+  <ion-img src="assets/scanner.png"></ion-img>
 
   <!-- Franja negra en el pie de página -->
   <div class="black-footer">
-    <ion-button id="present-alert" fill="outline" size="large" shape="round" color="light">
+
+    <ion-button fill="outline" size="large" shape="round" color="light" (click)="presentAlert()">
       <ion-text style="color: black;">o</ion-text>
     </ion-button>
-    <ion-alert
-      trigger="present-alert"
-      header="ASISTENCIA REGISTRADA CON EXITO"
-      [buttons]="alertButtons"
-    ></ion-alert>
-
   </div>
-  
 
 </ion-content>
+
