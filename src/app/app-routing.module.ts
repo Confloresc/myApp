@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { CursosPage } from './cursos/cursos.page';
 import { AsistenciaPage } from './asistencia/asistencia.page';
+import { PageNotFoundPage } from './page-not-found/page-not-found.page';
 
 const routes: Routes = [
   {
@@ -56,7 +57,9 @@ const routes: Routes = [
   },
 
   { path: 'cursos', component: CursosPage },
-  { path: 'asistencia', component: AsistenciaPage }
+  { path: 'asistencia', component: AsistenciaPage },
+
+  { path: '***', component: PageNotFoundPage },
 
 ];
 
