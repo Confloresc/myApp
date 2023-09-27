@@ -59,7 +59,9 @@ const routes: Routes = [
   { path: 'cursos', component: CursosPage },
   { path: 'asistencia', component: AsistenciaPage },
 
-  { path: '***', component: PageNotFoundPage },
+  { path: '***',
+  loadChildren: () => import('./page-not-found/page-not-found-routing.module').then( m => m.PageNotFoundPageRoutingModule)
+},
 
 ];
 
