@@ -1,10 +1,10 @@
-import { Component, OnInit, ElementRef, ViewChildren } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChildren, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { QueryList } from '@angular/core';
 import type { Animation } from '@ionic/angular';
 import { AnimationController, IonCard } from '@ionic/angular';
-
+import { AuthenticationService } from '../services/authentication.service';
 @Component({
   selector: 'app-menuprof',
   templateUrl: './menuprof.page.html',
@@ -13,7 +13,7 @@ import { AnimationController, IonCard } from '@ionic/angular';
 export class MenuprofPage implements OnInit {
   nombre: string | undefined;
   correoElectronico: string | undefined;
-
+  tokenService = inject(AuthenticationService);
   @ViewChildren(IonCard, { read: ElementRef }) cardElements: QueryList<ElementRef<HTMLIonCardElement>>;
 
   private animation: Animation;
@@ -105,6 +105,9 @@ export class MenuprofPage implements OnInit {
   ionViewDidEnter() {
     this.play(); 
   }
-  
+  logout(){
+    this.tokenService.logout();
+    
+  }
 
 }
