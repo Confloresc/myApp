@@ -11,15 +11,15 @@ import { AuthenticationService } from '../services/authentication.service';
 export class LoginPage {
   user: Usuario = new Usuario();
   isPasswordValid: boolean = false;
-  validEmailPattern: string = '^(profesor@duoc.cl|alumno@duoc.cl)$';
+  validEmailPattern: string = '^(p@duoc.cl|a@duoc.cl)$';
   tokenService = inject(AuthenticationService);
 
   constructor(private router: Router, private navCtrl: NavController) {}
 
   validatePassword() {
-    if (this.user.email === 'profesor@duoc.cl' && this.user.password === 'profesor123') {
+    if (this.user.email === 'p@duoc.cl' && this.user.password === 'p123') {
       this.isPasswordValid = true;
-    } else if (this.user.email === 'alumno@duoc.cl' && this.user.password === 'alumno123') {
+    } else if (this.user.email === 'a@duoc.cl' && this.user.password === 'a123') {
       this.isPasswordValid = true;
     } else {
       this.isPasswordValid = false;
@@ -34,14 +34,14 @@ export class LoginPage {
     const isAuthenticated = this.tokenService.loginAuth(this.user.email, this.user.password);
    
     if (isAuthenticated) {
-      if (this.user.email === 'profesor@duoc.cl') {
+      if (this.user.email === 'p@duoc.cl') {
         this.navCtrl.navigateForward('/menuprof', {
           queryParams: {
-            nombre: 'Luis Gonzalez',
+            nombre: 'Sebastian Martinez',
             correoElectronico: this.user.email,
           },
         });
-      }else if(this.user.email === 'alumno@duoc.cl'){
+      }else if(this.user.email === 'a@duoc.cl'){
         this.navCtrl.navigateForward('/scanner', {
           queryParams: {
             nombre: 'Laura Mejia',

@@ -61,6 +61,8 @@ const routes: Routes = [
   { path: 'asistencia', component: AsistenciaPage },
 
   { path: '***', component: PageNotFoundPage },
+  
+
 
 ];
 

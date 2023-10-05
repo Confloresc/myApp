@@ -1,21 +1,3 @@
-ion-toolbar.custom-toolbar {
-  --ion-background-color: #000342; /* Cambia el color de fondo según tus preferencias */
-}
-
-ion-title {
-  color: white; /* Cambia el color del texto a blanco */
-  text-align: right; /* Alinea el texto a la izquierda */
-}
-
-/* Estilo para la franja amarilla */
-ion-header::after {
-  content: "";
-  display: block;
-  background-color: rgb(255, 196, 0);
-  height: 30px;
-}
-
-
 ion-button {
 
 
@@ -47,15 +29,20 @@ ion-button {
 }
 
 
-.subTitulo1{
-    padding: 3%;
-    color:white;
-    font-size: x-large;
-    margin-left: 10%;
+
+.texto1{
+  margin-top: 10%;
+}
+.text{
+  padding-left: 5%;
+}
+.botones{  
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
-.texto1,.botones{
-  margin-top: 5%;
+.texto-izquierda{
+  padding-top: 10%;
 }
 
 .alertaProf{

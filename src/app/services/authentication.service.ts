@@ -12,9 +12,9 @@ export class AuthenticationService {
 
 loginAuth(email: string, password: string): boolean  {
   
-  if (email === 'profesor@duoc.cl' && password === 'profesor123'){
+  if (email === 'p@duoc.cl' && password === 'p123'){
     this.isAuthenticated = true;
-  }else if(email === 'alumno@duoc.cl' && password === 'alumno123'){
+  }else if(email === 'a@duoc.cl' && password === 'a123'){
     this.isAuthenticated = true;
   }else{
     this.isAuthenticated = false;
