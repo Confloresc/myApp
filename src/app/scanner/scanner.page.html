@@ -17,21 +17,21 @@
 
   <div class="titulo1">
     <div class="user-info">
-      <p>Nombre: {{ nombre }}</p>
-      <p>Correo Electrónico: {{ correoElectronico }}</p>
+      <p>Nombre:holi </p>
+      <p>Correo Electrónico:</p>
     </div>
     <div class="subTitulo1">Asistencia</div>
   </div>
-
   <ion-list>
     <ion-item *ngFor="let barcode of barcodes">
-      <ion-label position="stacked">{{ barcode.format }}</ion-label>
-      <ion-input type="text" [value]="barcode.rawValue"></ion-input>
+      <ion-input type="text" [value]="barcode"></ion-input>
     </ion-item>
   </ion-list>
-  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+  <ion-fab slot="fixed" vertical="bottom" horizontal="center">
     <ion-fab-button (click)="scan()" [disabled]="!isSupported">
       <ion-icon name="scan"></ion-icon>
     </ion-fab-button>
   </ion-fab>
+  
 </ion-content>
+
