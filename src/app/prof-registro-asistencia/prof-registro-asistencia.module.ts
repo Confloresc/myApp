@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { ProfRegistroAsistenciaPageRoutingModule } from './prof-registro-asistencia-routing.module';
 
 import { ProfRegistroAsistenciaPage } from './prof-registro-asistencia.page';
+import { HeaderTeacherModule } from '../header-teacher/header-teacher.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ProfRegistroAsistenciaPageRoutingModule
+    ProfRegistroAsistenciaPageRoutingModule,
+    HeaderTeacherModule
   ],
   declarations: [ProfRegistroAsistenciaPage]
 })

@@ -1,24 +1,15 @@
-<ion-content [fullscreen]="true">
-  <ion-header>
-    <ion-toolbar class="custom-toolbar">
-      <ion-buttons slot="start" (click)="goToMenuprofPage()">
-        <ion-button>
-          <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
-        </ion-button>
-      </ion-buttons>
-      <ion-title>Menu profesor</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<app-header-teacher></app-header-teacher>
 
-  <div class="titulo1">
+<ion-content [fullscreen]="true"> 
+
+  <div class="titulo1 text">
     <div class="user-info">
       <p>Nombre: {{ nombre }}</p>
       <p>Correo Electrónico: {{ correoElectronico }}</p>
-    </div>
-    <div class="subTitulo1">Asistencia</div>
+    </div>   
   </div>
 
-  <div class="texto1">
+  <div class="texto1 text">
     <div class="subTexto1"><strong>Sede:</strong> Antonio Varas</div>
   </div>
 
@@ -32,4 +23,13 @@
     Revisar asistencia
   </ion-button>
 </div>
+
+
+<ion-card class="alertaProf">
+  <ion-card-content>Tienes una clase pendiente</ion-card-content>
+</ion-card>
+
+
+
+
   </ion-content>
