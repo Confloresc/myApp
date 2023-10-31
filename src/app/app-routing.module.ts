@@ -38,7 +38,7 @@ const routes: Routes = [
   },
   {
     path: 'scanner',
-    loadChildren: () => import('./scanner/scanner.module').then( m => m.ScannerPageModule),canActivate: [authGuardFn]
+    loadChildren: () => import('./scanner/scanner.module').then( m => m.ScannerPageModule)
   },
    {
     path: 'menuprof',
