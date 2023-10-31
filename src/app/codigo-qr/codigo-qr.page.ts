@@ -10,6 +10,7 @@ import { AlertController, NavController } from '@ionic/angular';
 
 export class CodigoQRPage implements OnInit {
   alertButtons: string[] = [];
+  text: string = "";
 
 
   constructor(
