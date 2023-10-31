@@ -15,6 +15,7 @@ ion-header::after {
   height: 30px;
 }
 
+
 ion-button {
 
 
@@ -38,6 +39,9 @@ ion-button {
     --margin-left:0;
 
   }
+  ion-button.button:hover {
+    background-color: #120f41; /* Nuevo color de fondo al pasar el mouse */
+  }
 
   .title{
     background-color: #000342;
@@ -53,6 +57,4 @@ ion-button {
 .texto1,.botones{
   margin-top: 5%;
 }
-
-
 

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Usuario } from 'usuario.model';
-import { Router } from '@angular/router'; // Importa el Router
+import { Router } from '@angular/router';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -10,46 +11,35 @@ import { Router } from '@angular/router'; // Importa el Router
 export class LoginPage {
   user: Usuario = new Usuario();
   isPasswordValid: boolean = false;
-  validEmailPattern: string = '^(profesor@duoc.cl|alumno@duoc.cl)$';
+  validEmailPattern: string = '^(p@duoc.cl|a@duoc.cl)$';
 
-  constructor(private router: Router) {} // Inyecta el servicio Router
-
-  validateUser(user: Usuario): boolean {
-    if (
-      (user.email === 'profesor@duoc.cl' && user.password === 'profesor123') ||
-      (user.email === 'alumno@duoc.cl' && user.password === 'alumno123')
-    ) {
-      return true;
-    } else {
-      return false;
-    }
-  }
+  constructor(private router: Router, private authService: AuthenticationService) {}
 
   validatePassword() {
-    if (this.user.email === 'profesor@duoc.cl' && this.user.password === 'profesor123') {
-      this.isPasswordValid = true;
-    } else if (this.user.email === 'alumno@duoc.cl' && this.user.password === 'alumno123') {
-      this.isPasswordValid = true;
-    } else {
-      this.isPasswordValid = false;
-    }
+    this.isPasswordValid = this.authService.loginAuth(this.user.email, this.user.password);
   }
 
   login() {
     console.log('Iniciando sesión con:', this.user.email, this.user.password);
-
-    if (this.validateUser(this.user)) {
-      console.log('Inicio de sesión exitoso');
-
-      // Redirige al usuario a la página adecuada después del inicio de sesión
-      if (this.user.email === 'profesor@duoc.cl') {
-        this.router.navigate(['/menuprof']); // Redirige a la página del profesor
-      } else {
-        // Redirige a la página predeterminada (por ejemplo, scanner)
-        this.router.navigate(['/scanner']);
+    
+    if (this.isPasswordValid) {
+      if (this.user.email === 'p@duoc.cl') {
+        this.router.navigate(['/menuprof'], {
+          queryParams: {
+            nombre: 'Sebastian Martinez',
+            correoElectronico: this.user.email,
+          },
+        });
+      } else if (this.user.email === 'a@duoc.cl') {
+        this.router.navigate(['/scanner'], {
+          queryParams: {
+            nombre: 'Laura Mejia',
+            correoElectronico: this.user.email,
+          },
+        });
       }
     } else {
-      console.log('Credenciales incorrectas');
+      // Las credenciales son incorrectas, muestra un mensaje de error
     }
   }
 }

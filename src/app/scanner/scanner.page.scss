@@ -14,7 +14,6 @@ ion-header::after {
   background-color: rgb(255, 196, 0);
   height: 30px;
 }
-
 /* Estilos para la franja negra en el pie de página */
 .black-footer {
   background-color: black;
@@ -45,3 +44,31 @@ ion-header::after {
   
 }
 
+// Hide all elements
+body.barcode-scanner-active {
+  visibility: hidden;
+  --background: transparent;
+  --ion-background-color: transparent;
+}
+
+// Show only the barcode scanner modal
+.barcode-scanner-modal {
+  visibility: visible;
+}
+
+@media (prefers-color-scheme: dark) {
+  .barcode-scanner-modal {
+    --background: transparent;
+    --ion-background-color: transparent;
+  }
+}
+
+// Hide all elements
+body.barcode-scanner-active {
+  visibility: hidden;
+}
+
+// Show only the barcode scanner modal
+.barcode-scanner-modal {
+  visibility: visible;
+}

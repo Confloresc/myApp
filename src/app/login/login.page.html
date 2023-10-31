@@ -24,7 +24,7 @@
         type="password"
         name="password"
         [(ngModel)]="user.password"
-        [minlength]="9"
+        [minlength]="1"
         [maxlength]="12"
         [required]="true"
         (input)="validatePassword()"
@@ -45,8 +45,6 @@
       <a href="#">¿Olvidaste tu contraseña?</a>
     </div>
 
-    <div *ngIf="loginForm.submitted && !validateUser(user)" class="error-message">
-      Credenciales incorrectas. Por favor, inténtelo de nuevo.
-    </div>
+   
   </form>
 </ion-content>

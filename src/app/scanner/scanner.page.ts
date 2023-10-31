@@ -1,31 +1,61 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController, NavController } from '@ionic/angular';
+import { Barcode, BarcodeScanner } from '@capacitor-mlkit/barcode-scanning';
+import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-scanner',
-  templateUrl: './scanner.page.html',
-  styleUrls: ['./scanner.page.scss'],
+  templateUrl: 'scanner.page.html',
+  styleUrls: ['scanner.page.scss'],
 })
-
 export class ScannerPage implements OnInit {
-  alertButtons: string[] = [];
+  isSupported = false;
+  barcodes: Barcode[] = [];
+  navCtrl: any;
+  correoElectronico: any;
+  nombre: any;
 
-  constructor(private alertController: AlertController, private navCtrl: NavController) { }
+  constructor(private alertController: AlertController, private router: Router) {}
 
-  async presentAlert() {
-    const alert = await this.alertController.create({
-
+  ngOnInit() {
+    BarcodeScanner.isSupported().then((result) => {
+      this.isSupported = result.supported;
     });
+  }
 
+async scan(): Promise<void> {
+  try {
+    const granted = await this.requestPermissions();
+    if (!granted) {
+      this.presentAlert();
+      return;
+    }
+    const { barcodes } = await BarcodeScanner.scan();
+    this.barcodes.push(...barcodes);
+  } catch (error) {
+    console.error('Error during scanning:', error);
+  }
+}
+
+  async requestPermissions(): Promise<boolean> {
+    const { camera } = await BarcodeScanner.requestPermissions();
+    return camera === 'granted' || camera === 'limited';
+  }
+
+  async presentAlert(): Promise<void> {
+    const alert = await this.alertController.create({
+      header: 'Permission denied',
+      message: 'Please grant camera permission to use the barcode scanner.',
+      buttons: ['OK'],
+    });
     await alert.present();
   }
 
+
   goToLoginPage() {
-    // Utiliza NavController para navegar a la página de login
-    this.navCtrl.navigateForward('/login'); // Asegúrate de que '/login' sea la ruta correcta a tu página de login
+    this.router.navigateByUrl('/login');
   }
 
-  ngOnInit() {
-    // Código relacionado con ngOnInit
-  }
 }
+

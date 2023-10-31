@@ -1,20 +1,14 @@
-<ion-header>
-  <ion-toolbar class="custom-toolbar">
-    <ion-buttons slot="start" (click)="goToMenuprofPage()">
-      <ion-button>
-        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-    <ion-title>Registro asistencia</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header-teacher></app-header-teacher>
 
 <ion-content [fullscreen]="true">
-
+  
   <div class="titulo1">
-    <div class="subTitulo1">Asistencia</div>
+    <div class="user-info">
+      <p>Nombre: {{ nombre }}</p>
+      <p>Correo Electrónico: {{ correoElectronico }}</p>
+    </div>
   </div>
-
+ 
   <div class="texto1">
     <div class="subTexto1"><strong>Sede:</strong> Antonio Varas</div>
     <div class="subTexto1"><strong>Selecciona el dia para registrar la asistencia</strong></div>
@@ -25,21 +19,11 @@
    <div class="calendario">
     <ion-datetime></ion-datetime>
    </div>
-  
-
-  <ion-accordion-group>
-  <ion-accordion value="first">
-    <ion-item slot="header" color="light">
-      <ion-label>Selecciona un Curso</ion-label>
-    </ion-item>
-    <div class="ion-padding" slot="content">19:00 - 20:20<br>Ingles<br>Sala V104</div>
-    <div class="ion-padding" slot="content">20:31 - 21:20<br>Arquitectura<br>Sala T504</div>
-    <div class="ion-padding" slot="content">21:21 - 22:30<br>Portafolio<br>Sala V308</div>
-  </ion-accordion>
-  </ion-accordion-group>
-  <div class="btn">
-      <ion-button routerLink="/codigo-qr" color="primary">Generar QR</ion-button>
-  </div>
+   <h1 class="titleListaCursos">Cursos</h1>
+    <div class="listaCursos" *ngFor="let objeto of objetos" (click)="navegarADetalle(objeto.id, objeto.nombre, objeto.seccion, objeto.sala, objeto.horario)">
+        {{ objeto.nombre }} {{ objeto.horario }}<br>Sección:{{objeto.seccion}} <br>Sala:{{objeto.sala}}
+    </div>
+ 
 </ion-content>
 
 
