@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Barcode, BarcodeScanner } from '@capacitor-mlkit/barcode-scanning';
-import { AlertController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
+import { AuthenticationService } from '../services/authentication.service';
+import { ActivatedRoute } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-scanner',
@@ -11,10 +15,30 @@ export class ScannerPage implements OnInit {
   isSupported = false;
   barcodes: Barcode[] = [];
   router: any;
+  nombre: string | undefined;
+  apellido: string | undefined;
+  email: string | undefined;
+  materias: any[] = [];
 
-  constructor(private alertController: AlertController) {}
+  constructor(private alertController: AlertController,private authService: AuthenticationService,private route: ActivatedRoute,private navCtrl: NavController,) {}
 
   ngOnInit() {
+    this.route.queryParams.subscribe((params) => {
+      this.email = params['email'];
+      this.nombre = params['nombre'];
+      this.apellido = params['apellido'];
+      if (this.email) {
+        this.authService.get_user_info(this.email).subscribe((userData: any) => {
+          if (userData) {
+            this.nombre = userData.nombre;
+            this.apellido = userData.apellido;
+          }
+        });
+      } else {
+        // Maneja el escenario donde this.email es undefined.
+      }
+    });
+  
     BarcodeScanner.isSupported().then((result) => {
       this.isSupported = result.supported;
     });
