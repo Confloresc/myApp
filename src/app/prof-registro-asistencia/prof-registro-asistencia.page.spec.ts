@@ -15,3 +15,4 @@ describe('ProfRegistroAsistenciaPage', () => {
     expect(component).toBeTruthy();
   });
 });
+

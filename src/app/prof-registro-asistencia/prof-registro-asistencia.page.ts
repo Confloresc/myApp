@@ -41,6 +41,9 @@ constructor(  private router: Router,
 
     ngOnInit() {
       this.route.queryParams.subscribe((params) => {
+        this.email = params['email'];
+        this.nombre = params['nombre'];
+        this.apellido = params['apellido'];
         const email = params['email'];
         if (email) {
           this.authService.get_user_info(email).subscribe((userData: any) => {
