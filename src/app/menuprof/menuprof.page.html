@@ -3,12 +3,13 @@
 <ion-content [fullscreen]="true"> 
 
   <div class="titulo1 text">
+    <p>aqui</p>
     <div class="user-info">
-      <p>Nombre: {{ nombre }}</p>
-      <p>Correo Electrónico: {{ correoElectronico }}</p>
-    </div>   
+      <p *ngIf="nombre && apellido">Nombre: {{ nombre }} {{ apellido }}</p>
+      <p *ngIf="email">Correo Electrónico: {{ email }}</p>
+    </div>
   </div>
-
+  
   <div class="texto1 text">
     <div class="subTexto1"><strong>Sede:</strong> Antonio Varas</div>
   </div>

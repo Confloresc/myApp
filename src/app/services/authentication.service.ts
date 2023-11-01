@@ -6,6 +6,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthenticationService {
+  get_user_info(email: string): Observable<any> {
+    const url = `${this.apiUrl}/users/${encodeURIComponent(email)}`;
+    return this.http.get(url);
+  }
+
+
   private apiUrl = 'http://localhost:8000'; // Reemplaza con la URL de tu API FastAPI
 
   constructor(private http: HttpClient) {}
@@ -24,5 +30,6 @@ export class AuthenticationService {
     return this.http.get(`${this.apiUrl}/authenticate?email=${email}`);
   }
 
+  
   // Otros métodos para manejar el estado de autenticación (guardar tokens, comprobar autenticación, etc.).
 }

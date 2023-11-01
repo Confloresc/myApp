@@ -13,22 +13,33 @@ export class LoginPage {
   isPasswordValid: boolean = false; // Agregamos una propiedad para validar la contraseña
   validEmailPattern: RegExp = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
 
+
   constructor(
     private authService: AuthenticationService,
     private router: Router
   ) {}
 
+
+
   login() {
     this.authService.login(this.email, this.password).subscribe(
       (response) => {
         if (response.success) {
-          this.authService.isAuthenticatedUser(response.email).subscribe((userData: any) => {
-            if (userData.user_type === 'profesor') {
-              this.router.navigate(['/menuprof']);
-            } else if (userData.user_type === 'alumno') {
-              this.router.navigate(['/scanner']);
-            }
-          });
+
+  
+          if (response.user_type === 'profesor') {
+            this.router.navigate(['/menuprof'], {
+              queryParams: {
+                email: this.email, // Asegúrate de pasar el correo electrónico si es necesario
+              },
+            });
+          } else if (response.user_type === 'alumno') {
+            this.router.navigate(['/scanner'], {
+              queryParams: {
+                email: this.email, // Asegúrate de pasar el correo electrónico si es necesario
+              },
+            });
+          }
         } else {
           // Muestra un mensaje de error al usuario
         }
@@ -38,6 +49,10 @@ export class LoginPage {
       }
     );
   }
+  
+
+
+  
   validatePassword() {
     // Implementa la lógica para validar la contraseña aquí
     // Puedes usar esta función para establecer el valor de 'isPasswordValid' en true o false
