@@ -1,49 +1,48 @@
 import { Component } from '@angular/core';
-import { DatabaseService } from './tu-ruta-hacia-database-service';
-import { NavController } from '@ionic/angular';
+import { AuthenticationService } from '../services/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: 'login.page.html',
-  styleUrls: ['login.page.scss'],
+  styleUrls: ['login.page.scss']
 })
 export class LoginPage {
-  user = {
-    email: '',
-    password: '',
-  };
+  email: string = '';
+  password: string = '';
+  isPasswordValid: boolean = false; // Agregamos una propiedad para validar la contraseña
+  validEmailPattern: RegExp = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
 
-  validEmailPattern: string = '^(p@duoc.cl|a@duoc.cl)';
-  isPasswordValid: boolean = false;
+  constructor(
+    private authService: AuthenticationService,
+    private router: Router
+  ) {}
 
-  constructor(private databaseService: DatabaseService, private navCtrl: NavController) {}
-
-  validatePassword() {
-    // Agrega aquí la lógica para validar la contraseña
-  }
-
-  async login() {
-    const { email, password } = this.user;
-
-    // Realiza una consulta SQL para verificar las credenciales del usuario en la base de datos
-    const query = 'SELECT * FROM Profesores WHERE CorreoElectronico = ? AND Contrasena = ?';
-    const params = [email, password];
-
-    this.databaseService.getDatabaseState().subscribe(async (ready) => {
-      if (ready) {
-        try {
-          const result = await this.databaseService.database.executeSql(query, params);
-          if (result.rows.length > 0) {
-            // Inicio de sesión exitoso, el usuario existe en la base de datos
-            this.navCtrl.navigateForward('/scanner'); // Redirige a la página de destino
-          } else {
-            // Las credenciales son incorrectas
-            console.log('Credenciales incorrectas');
-          }
-        } catch (error) {
-          console.error('Error al consultar la base de datos', error);
+  login() {
+    this.authService.login(this.email, this.password).subscribe(
+      (response) => {
+        if (response.success) {
+          this.authService.isAuthenticatedUser(response.email).subscribe((userData: any) => {
+            if (userData.user_type === 'profesor') {
+              this.router.navigate(['/menuprof']);
+            } else if (userData.user_type === 'alumno') {
+              this.router.navigate(['/scanner']);
+            }
+          });
+        } else {
+          // Muestra un mensaje de error al usuario
         }
+      },
+      (error) => {
+        // Manejar errores (mostrar mensajes de error, etc.).
       }
-    });
+    );
+  }
+  validatePassword() {
+    // Implementa la lógica para validar la contraseña aquí
+    // Puedes usar esta función para establecer el valor de 'isPasswordValid' en true o false
+    // en función de si la contraseña cumple con ciertos criterios.
+    // Por ejemplo:
+    this.isPasswordValid = this.password.length >= 8; // Valida si la contraseña tiene al menos 8 caracteres.
   }
 }

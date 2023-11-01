@@ -4,6 +4,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AuthService {
+  getUserType(email: string) {
+    throw new Error('Method not implemented.');
+  }
   private validUsers = [
     { email: 'p@duoc.cl', password: 'p123' },
     { email: 'a@duoc.cl', password: 'a123' }
