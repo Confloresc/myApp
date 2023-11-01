@@ -12,39 +12,33 @@
       <ion-input
         type="email"
         name="email"
-        [(ngModel)]="user.email"
+        [(ngModel)]="email"
         required
         [pattern]="validEmailPattern"
       ></ion-input>
     </ion-item>
-
+  
     <ion-item color="light" class="custom-input">
       <ion-label position="floating">Contraseña</ion-label>
       <ion-input
         type="password"
         name="password"
-        [(ngModel)]="user.password"
-        [minlength]="1"
-        [maxlength]="12"
-        [required]="true"
+        [(ngModel)]="password"
+        required
         (input)="validatePassword()"
       ></ion-input>
     </ion-item>
-
+  
     <ion-button
       type="submit"
       expand="full"
       [disabled]="!loginForm.valid || !isPasswordValid"
       color="warning"
-      routerLink="/scanner"
-    >
-      Iniciar Sesión
-    </ion-button>
-
+      (click)="login()"
+    >Iniciar Sesión</ion-button>
+  
     <div class="forgot-password-link">
       <a href="#">¿Olvidaste tu contraseña?</a>
     </div>
-
-   
   </form>
 </ion-content>

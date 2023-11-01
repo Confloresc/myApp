@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController, NavController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-cursos',
@@ -13,8 +14,9 @@ export class CursosPage implements OnInit {
   alertButtons: string[] = [];
   nombre: string | undefined;
   correoElectronico: string | undefined;
+  curso: any[] = [];
 
-  constructor(private router: Router,private alertController: AlertController, private navCtrl: NavController,private route: ActivatedRoute) { }
+  constructor(private router: Router,private alertController: AlertController, private navCtrl: NavController,private route: ActivatedRoute,private http: HttpClient) { }
 
   async presentAlert() {
     const alert = await this.alertController.create({
@@ -35,8 +37,14 @@ export class CursosPage implements OnInit {
     this.route.queryParams.subscribe(params => {
       this.nombre = params['nombre'];
       this.correoElectronico = params['correoElectronico'];
-
-      // Ahora puedes utilizar 'nombre' y 'correoElectronico' como desees en esta página.
+  
+      // Construye la URL para la solicitud HTTP, incluyendo 'nombre' y 'correoElectronico'
+      const url = `http://127.0.0.1:8000/profesor?nombre=${this.nombre}&correo=${this.correoElectronico}`;
+  
+      // Realiza una solicitud HTTP GET a tu API para obtener los cursos
+      this.http.get(url).subscribe((data: any) => {
+        this.curso = data; // Almacena los cursos en la propiedad 'curso'
+      });
     });
   }
 
@@ -51,6 +59,7 @@ export class CursosPage implements OnInit {
         horario: horario,
       }
     });
+
 
   }
 }

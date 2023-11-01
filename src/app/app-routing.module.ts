@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { NotFoundPage } from './not-found/not-found.page'; // Importa la página NotFoundPage
-import { authGuardFn } from './services/auth-guard.service';
+import { AuthGuard } from './services/auth-guard.service';
 
 const routes: Routes = [
   {
@@ -12,7 +12,7 @@ const routes: Routes = [
   {
     path: 'prof-registro-asistencia',
     loadChildren: () => import('./prof-registro-asistencia/prof-registro-asistencia.module').then(m => m.ProfRegistroAsistenciaPageModule),
-    canActivate: [authGuardFn]
+    canActivate: [AuthGuard]
   },
   {
     path: 'login',
@@ -21,22 +21,22 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then(m => m.HomePageModule),
-    canActivate: [authGuardFn]
+    canActivate: [AuthGuard]
   },
   {
     path: 'codigo-qr',
     loadChildren: () => import('./codigo-qr/codigo-qr.module').then(m => m.CodigoQRPageModule),
-    canActivate: [authGuardFn]
+    canActivate: [AuthGuard]
   },
   {
     path: 'prof-registro-asistencia',
     loadChildren: () => import('./prof-registro-asistencia/prof-registro-asistencia.module').then(m => m.ProfRegistroAsistenciaPageModule),
-    canActivate: [authGuardFn]
+    canActivate: [AuthGuard]
   },
   {
     path: 'profesor',
     loadChildren: () => import('./profesor/profesor.module').then(m => m.ProfesorPageModule),
-    canActivate: [authGuardFn]
+    canActivate: [AuthGuard]
   },
   {
     path: 'scanner',
@@ -45,17 +45,17 @@ const routes: Routes = [
   {
     path: 'menuprof',
     loadChildren: () => import('./menuprof/menuprof.module').then(m => m.MenuprofPageModule),
-    canActivate: [authGuardFn]
+    canActivate: [AuthGuard]
   },
   {
     path: 'cursos',
     loadChildren: () => import('./cursos/cursos.module').then(m => m.CursosPageModule),
-    canActivate: [authGuardFn]
+    canActivate: [AuthGuard]
   },
   {
     path: 'asistencia',
     loadChildren: () => import('./asistencia/asistencia.module').then(m => m.AsistenciaPageModule),
-    canActivate: [authGuardFn]
+    canActivate: [AuthGuard]
   },
 
   {
