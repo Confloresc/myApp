@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Barcode, BarcodeScanner } from '@capacitor-mlkit/barcode-scanning';
 import { AlertController } from '@ionic/angular';
-import { Router } from '@angular/router';
-
 
 @Component({
   selector: 'app-scanner',
@@ -12,11 +10,9 @@ import { Router } from '@angular/router';
 export class ScannerPage implements OnInit {
   isSupported = false;
   barcodes: Barcode[] = [];
-  navCtrl: any;
-  correoElectronico: any;
-  nombre: any;
+  router: any;
 
-  constructor(private alertController: AlertController, private router: Router) {}
+  constructor(private alertController: AlertController) {}
 
   ngOnInit() {
     BarcodeScanner.isSupported().then((result) => {
@@ -24,8 +20,7 @@ export class ScannerPage implements OnInit {
     });
   }
 
-async scan(): Promise<void> {
-  try {
+  async scan(): Promise<void> {
     const granted = await this.requestPermissions();
     if (!granted) {
       this.presentAlert();
@@ -33,10 +28,7 @@ async scan(): Promise<void> {
     }
     const { barcodes } = await BarcodeScanner.scan();
     this.barcodes.push(...barcodes);
-  } catch (error) {
-    console.error('Error during scanning:', error);
   }
-}
 
   async requestPermissions(): Promise<boolean> {
     const { camera } = await BarcodeScanner.requestPermissions();
@@ -52,10 +44,8 @@ async scan(): Promise<void> {
     await alert.present();
   }
 
-
   goToLoginPage() {
     this.router.navigateByUrl('/login');
   }
 
 }
-

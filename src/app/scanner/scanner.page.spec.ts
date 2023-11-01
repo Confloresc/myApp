@@ -22,3 +22,5 @@ describe('ScannerPage', () => {
       expect(component).toBeTruthy();
     });
   });
+
+

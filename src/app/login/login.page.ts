@@ -1,45 +1,48 @@
 import { Component } from '@angular/core';
-import { Usuario } from 'usuario.model';
-import { Router } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+  templateUrl: 'login.page.html',
+  styleUrls: ['login.page.scss']
 })
 export class LoginPage {
-  user: Usuario = new Usuario();
-  isPasswordValid: boolean = false;
-  validEmailPattern: string = '^(p@duoc.cl|a@duoc.cl)$';
+  email: string = '';
+  password: string = '';
+  isPasswordValid: boolean = false; // Agregamos una propiedad para validar la contraseña
+  validEmailPattern: RegExp = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
 
-  constructor(private router: Router, private authService: AuthenticationService) {}
-
-  validatePassword() {
-    this.isPasswordValid = this.authService.loginAuth(this.user.email, this.user.password);
-  }
+  constructor(
+    private authService: AuthenticationService,
+    private router: Router
+  ) {}
 
   login() {
-    console.log('Iniciando sesión con:', this.user.email, this.user.password);
-    
-    if (this.isPasswordValid) {
-      if (this.user.email === 'p@duoc.cl') {
-        this.router.navigate(['/menuprof'], {
-          queryParams: {
-            nombre: 'Sebastian Martinez',
-            correoElectronico: this.user.email,
-          },
-        });
-      } else if (this.user.email === 'a@duoc.cl') {
-        this.router.navigate(['/scanner'], {
-          queryParams: {
-            nombre: 'Laura Mejia',
-            correoElectronico: this.user.email,
-          },
-        });
+    this.authService.login(this.email, this.password).subscribe(
+      (response) => {
+        if (response.success) {
+          this.authService.isAuthenticatedUser(response.email).subscribe((userData: any) => {
+            if (userData.user_type === 'profesor') {
+              this.router.navigate(['/menuprof']);
+            } else if (userData.user_type === 'alumno') {
+              this.router.navigate(['/scanner']);
+            }
+          });
+        } else {
+          // Muestra un mensaje de error al usuario
+        }
+      },
+      (error) => {
+        // Manejar errores (mostrar mensajes de error, etc.).
       }
-    } else {
-      // Las credenciales son incorrectas, muestra un mensaje de error
-    }
+    );
+  }
+  validatePassword() {
+    // Implementa la lógica para validar la contraseña aquí
+    // Puedes usar esta función para establecer el valor de 'isPasswordValid' en true o false
+    // en función de si la contraseña cumple con ciertos criterios.
+    // Por ejemplo:
+    this.isPasswordValid = this.password.length >= 8; // Valida si la contraseña tiene al menos 8 caracteres.
   }
 }
