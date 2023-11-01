@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController, NavController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-prof-registro-asistencia',
@@ -11,11 +12,16 @@ import { ActivatedRoute } from '@angular/router';
 
 export class ProfRegistroAsistenciaPage implements OnInit {
   alertButtons: string[] = [];
-  alertController: any;
   nombre: string | undefined;
-  correoElectronico: string | undefined;
+  apellido: string | undefined;
+  email: string | undefined;
+  materias: any[] = [];
 
-constructor(private router: Router, alertController: AlertController, private navCtrl: NavController,private route: ActivatedRoute) { }
+constructor(  private router: Router,
+  private alertController: AlertController,
+  private navCtrl: NavController,
+  private route: ActivatedRoute,
+  private authService: AuthenticationService) { }
 
   objetos = [
     { id: 1, nombre: 'Portafolio', seccion:'010V', sala:'F210',horario:'19:00 a 20:20' },
@@ -33,17 +39,20 @@ constructor(private router: Router, alertController: AlertController, private na
   }
 
 
-
-  ngOnInit() {
-    // Obtener los parámetros pasados desde la página anterior.
-    this.route.queryParams.subscribe(params => {
-      this.nombre = params['nombre'];
-      this.correoElectronico = params['correoElectronico'];
-
-      // Ahora puedes utilizar 'nombre' y 'correoElectronico' como desees en esta página.
-    });
-  }
-
+    ngOnInit() {
+      this.route.queryParams.subscribe((params) => {
+        const email = params['email'];
+        if (email) {
+          this.authService.get_user_info(email).subscribe((userData: any) => {
+            if (userData && userData.materias) {
+              this.materias = userData.materias;
+            }
+          });
+        }
+      });
+    }
+  
+    
   navegarADetalle(id: number, nombre: string, seccion: string, sala: string, horario: string) {
     // Navega a la página de detalle y pasa el id y el nombre como queryParams
     this.router.navigate(['/codigo-qr'], {
@@ -63,6 +72,15 @@ constructor(private router: Router, alertController: AlertController, private na
     this.navCtrl.back();
 
   }
+
+  verDetallesSeccion(seccion: any) {
+    // Puedes redirigir a una página de detalles y pasar la información de la sección
+    this.router.navigate(['/detalles-seccion'], { state: { seccion } });
+
+  }
+  
+  
+
 }
 
 
