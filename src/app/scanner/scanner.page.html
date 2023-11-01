@@ -17,11 +17,13 @@
 
   <div class="titulo1">
     <div class="user-info">
-      <p>Nombre:holi </p>
-      <p>Correo Electrónico:</p>
+      <p>Nombre: {{ nombre + ' ' + apellido }}</p>
+      <p>Correo Electrónico: {{ email }}</p>
     </div>
-    <div class="subTitulo1">Asistencia</div>
-  </div>
+  </div>     
+
+
+
   <ion-list>
     <ion-item *ngFor="let barcode of barcodes">
       <ion-input type="text" [value]="barcode"></ion-input>

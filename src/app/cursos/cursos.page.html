@@ -1,20 +1,30 @@
 <app-header-teacher></app-header-teacher>
 
 <ion-content [fullscreen]="true">
+  
   <div class="titulo1">
     <div class="user-info">
-      <p>Nombre: {{ nombre }}</p>
-      <p>Correo Electrónico: {{ correoElectronico }}</p>
+      <p>Nombre: {{ nombre + ' ' + apellido }}</p>
+      <p>Correo Electrónico: {{ email }}</p>
     </div>
-  </div>
-  <div class="texto1">
-    <div class="subTexto1"><strong>Sede:</strong> Antonio Varas</div>
-  </div>
-  <div class="botones">
-    <ion-button class="texto-izquierda" fill="clear" expand="full" *ngFor="let curso of curso">
-      <ion-icon name="square" style="color: rgb(239, 232, 155);"></ion-icon>
-      {{ curso.nombre }}
-    </ion-button>
-  </div>
-</ion-content>
+  </div>     
 
+
+  <h1 class="titleListaCursos">Asistencia</h1>
+  <ion-content>
+    <div class="materias-container">
+      <div *ngFor="let materia of materias" class="materia-card">
+        <h3>Materia: {{ materia.nombre }}</h3>
+        <ion-button expand="full" *ngFor="let seccion of materia.secciones" class="seccion-button" (click)="verDetallesAsistencia(seccion)">
+          <div>
+            <p>Sección: {{ seccion.seccion }}</p>
+            <p>Horario de inicio: {{ seccion.horario_inicio }}</p>
+            <p>Horario de fin: {{ seccion.horario_fin }}</p>
+          </div>
+        </ion-button>
+      </div>
+    </div>
+  </ion-content>
+  
+  
+</ion-content>
