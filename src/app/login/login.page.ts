@@ -1,45 +1,49 @@
 import { Component } from '@angular/core';
-import { Usuario } from 'usuario.model';
-import { Router } from '@angular/router';
-import { AuthenticationService } from '../services/authentication.service';
+import { DatabaseService } from './tu-ruta-hacia-database-service';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+  templateUrl: 'login.page.html',
+  styleUrls: ['login.page.scss'],
 })
 export class LoginPage {
-  user: Usuario = new Usuario();
-  isPasswordValid: boolean = false;
-  validEmailPattern: string = '^(p@duoc.cl|a@duoc.cl)$';
+  user = {
+    email: '',
+    password: '',
+  };
 
-  constructor(private router: Router, private authService: AuthenticationService) {}
+  validEmailPattern: string = '^(p@duoc.cl|a@duoc.cl)';
+  isPasswordValid: boolean = false;
+
+  constructor(private databaseService: DatabaseService, private navCtrl: NavController) {}
 
   validatePassword() {
-    this.isPasswordValid = this.authService.loginAuth(this.user.email, this.user.password);
+    // Agrega aquí la lógica para validar la contraseña
   }
 
-  login() {
-    console.log('Iniciando sesión con:', this.user.email, this.user.password);
-    
-    if (this.isPasswordValid) {
-      if (this.user.email === 'p@duoc.cl') {
-        this.router.navigate(['/menuprof'], {
-          queryParams: {
-            nombre: 'Sebastian Martinez',
-            correoElectronico: this.user.email,
-          },
-        });
-      } else if (this.user.email === 'a@duoc.cl') {
-        this.router.navigate(['/scanner'], {
-          queryParams: {
-            nombre: 'Laura Mejia',
-            correoElectronico: this.user.email,
-          },
-        });
+  async login() {
+    const { email, password } = this.user;
+
+    // Realiza una consulta SQL para verificar las credenciales del usuario en la base de datos
+    const query = 'SELECT * FROM Profesores WHERE CorreoElectronico = ? AND Contrasena = ?';
+    const params = [email, password];
+
+    this.databaseService.getDatabaseState().subscribe(async (ready) => {
+      if (ready) {
+        try {
+          const result = await this.databaseService.database.executeSql(query, params);
+          if (result.rows.length > 0) {
+            // Inicio de sesión exitoso, el usuario existe en la base de datos
+            this.navCtrl.navigateForward('/scanner'); // Redirige a la página de destino
+          } else {
+            // Las credenciales son incorrectas
+            console.log('Credenciales incorrectas');
+          }
+        } catch (error) {
+          console.error('Error al consultar la base de datos', error);
+        }
       }
-    } else {
-      // Las credenciales son incorrectas, muestra un mensaje de error
-    }
+    });
   }
 }

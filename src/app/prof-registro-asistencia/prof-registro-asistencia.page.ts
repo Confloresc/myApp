@@ -68,8 +68,3 @@ constructor(private router: Router, alertController: AlertController, private na
 
 
 
-
-    
-  
-
-  
