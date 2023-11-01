@@ -10,18 +10,20 @@
   </div>     
 
 
-   <h1 class="titleListaCursos">Cursos</h1>
-   <ion-content>
+
+  <h1 class="titleListaCursos">Cursos</h1>
+  <ion-content>
     <div class="materias-container">
       <div *ngFor="let materia of materias" class="materia-card">
         <h3>Materia: {{ materia.nombre }}</h3>
-        <ul class="secciones-list">
-          <li *ngFor="let seccion of materia.secciones" class="seccion-card" (click)="verDetallesSeccion(seccion)">
+        <ion-button expand="full" *ngFor="let seccion of materia.secciones" class="seccion-button" (click)="verDetallesSeccion(seccion)">
+          <div>
             <p>Sección: {{ seccion.seccion }}</p>
             <p>Horario de inicio: {{ seccion.horario_inicio }}</p>
             <p>Horario de fin: {{ seccion.horario_fin }}</p>
-          </li>
-        </ul>
+          </div>
+        </ion-button>
+        
       </div>
     </div>
   </ion-content>

@@ -81,23 +81,11 @@ ion-datetime{
     margin: 0;
   }
   
-  /* Estilos para las secciones */
-  .secciones-list {
-    list-style: none;
-    padding: 0;
+
+  .seccion-button {
+    border-radius: 10px; /* Ajusta este valor según el radio de borde deseado */
+    color: white; /* Cambia el color del texto si es necesario */
+    padding: 10px; /* Ajusta el espaciado interno según sea necesario */
+    text-align: center;
   }
-  
-  .seccion-card {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    margin: 8px;
-    padding: 8px;
-  }
-  
-  /* Estilos para los párrafos */
-  .seccion-card p {
-    margin: 0;
-    line-height: 1.5;
-  }
-  
+

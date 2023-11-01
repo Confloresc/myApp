@@ -16,45 +16,74 @@ ion-header::after {
 }
 
 
-ion-button {
 
-
-    --background-activated: #eaeaea;
-    --background-focused: #eaeaea;
-  
-    --color: rgb(0, 0, 0);
-  
-    --border-radius: 0;
-    --border-color: #000;
-    --border-style: solid;
-    --border-width: 1px;
-  
-    --box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25);
-  
-    --ripple-color: deeppink;
-  
-    --padding-top: 10px;
-    --padding-bottom: 10px;
-    --padding-left: 0;
-    --margin-left:0;
-
-  }
-  ion-button.button:hover {
-    background-color: #120f41; /* Nuevo color de fondo al pasar el mouse */
-  }
-
-  .title{
-    background-color: #000342;
+ion-content {
+  --ion-background-color: #f4f4f4; // Cambia el color de fondo según tus preferencias     
 }
+.title{
+  background-color: #000342;
+  color:white;
+}
+
 
 .subTitulo1{
-    padding: 3%;
-    color:white;
-    font-size: x-large;
-    margin-left: 10%;
+  padding: 3%;
+  color:white;
+  font-size: x-large;
+  margin-left: 10%;
+}
+.texto1{
+  padding-top: 5%;
+  margin-left: 8%;
+}
+.subTexto1{
+  padding-top: 4%;
+}
+.calendario{
+ margin-left: 8%;
+ margin-top: 10%;
+ margin-bottom: 5%;   
 }
 
-.texto1,.botones{
-  margin-top: 5%;
+ion-datetime{
+  background-color:white;
 }
 
+.titleListaCursos{
+  text-align: center;
+  
+}
+
+.listaCursos{
+ display: inline-block;
+ padding: 10px 20px; /* Ajusta el espaciado interno según tus necesidades */
+ background-color: #007bff; /* Color de fondo del botón */
+ color: #fff; /* Color del texto del botón */
+ border: 1px solid #007bff; /* Borde del botón */
+ border-radius: 5px; /* Borde redondeado */
+ width: 80%;
+ margin-left: 10%;
+ margin-top: 3%;
+ 
+}
+
+/* Estilos para las materias */
+.materia-card {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.materia-card h3 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.seccion-button {
+  border-radius: 10px; /* Ajusta este valor según el radio de borde deseado */
+  color: white; /* Cambia el color del texto si es necesario */
+  padding: 10px; /* Ajusta el espaciado interno según sea necesario */
+  text-align: center;
+}
