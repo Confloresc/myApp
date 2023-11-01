@@ -9,8 +9,14 @@ import { CodigoQRPageRoutingModule } from './codigo-qr-routing.module';
 import { CodigoQRPage } from './codigo-qr.page';
 import { HeaderTeacherModule } from '../header-teacher/header-teacher.module';
 
+import { QRCodeModule } from 'angularx-qrcode';
+//https://www.npmjs.com/package/angularx-qrcode/v/16.0.2
+//instalar: npm install angularx-qrcode --save
+
+
 @NgModule({
   imports: [
+    QRCodeModule,
     CommonModule,
     FormsModule,
     IonicModule,

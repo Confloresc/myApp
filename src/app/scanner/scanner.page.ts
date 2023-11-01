@@ -1,56 +1,61 @@
+import { Component, OnInit } from '@angular/core';
+import { Barcode, BarcodeScanner } from '@capacitor-mlkit/barcode-scanning';
+import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
-// scanner.page.ts
-import { Component } from '@angular/core';
-import { AlertController, NavController } from '@ionic/angular';
-import { ActivatedRoute } from '@angular/router'; 
 
 @Component({
   selector: 'app-scanner',
-  templateUrl: './scanner.page.html',
-  styleUrls: ['./scanner.page.scss'],
+  templateUrl: 'scanner.page.html',
+  styleUrls: ['scanner.page.scss'],
 })
+export class ScannerPage implements OnInit {
+  isSupported = false;
+  barcodes: Barcode[] = [];
+  navCtrl: any;
+  correoElectronico: any;
+  nombre: any;
 
+  constructor(private alertController: AlertController, private router: Router) {}
 
-export class ScannerPage {
-  nombre: string | undefined;
-  correoElectronico: string | undefined;
-
-  constructor(
-    private alertController: AlertController,
-    private navCtrl: NavController,
-    private route: ActivatedRoute 
-  ) {}
-
-  async presentAlert() {
-    const alert = await this.alertController.create({
-
-      header: 'Éxito',
-      message: 'La operación se completó con éxito.',
-      backdropDismiss: false, // Evita que la alarma se cierre haciendo clic fuera de ella
-      buttons: [
-        {
-          text: 'OK',
-          handler: () => {
-            this.goToLoginPage(); // Redirige a la página de inicio de sesión al hacer clic en OK
-          }
-        }
-      ]
-
+  ngOnInit() {
+    BarcodeScanner.isSupported().then((result) => {
+      this.isSupported = result.supported;
     });
+  }
 
+async scan(): Promise<void> {
+  try {
+    const granted = await this.requestPermissions();
+    if (!granted) {
+      this.presentAlert();
+      return;
+    }
+    const { barcodes } = await BarcodeScanner.scan();
+    this.barcodes.push(...barcodes);
+  } catch (error) {
+    console.error('Error during scanning:', error);
+  }
+}
+
+  async requestPermissions(): Promise<boolean> {
+    const { camera } = await BarcodeScanner.requestPermissions();
+    return camera === 'granted' || camera === 'limited';
+  }
+
+  async presentAlert(): Promise<void> {
+    const alert = await this.alertController.create({
+      header: 'Permission denied',
+      message: 'Please grant camera permission to use the barcode scanner.',
+      buttons: ['OK'],
+    });
     await alert.present();
   }
 
-  goToLoginPage() {
-    this.navCtrl.navigateBack('/login');}
 
-  ngOnInit() {
-    this.route.queryParams.subscribe(params => {
-      this.nombre = params['nombre'];
-      this.correoElectronico = params['correoElectronico'];
-    });
+  goToLoginPage() {
+    this.router.navigateByUrl('/login');
   }
 
 }
-
 
