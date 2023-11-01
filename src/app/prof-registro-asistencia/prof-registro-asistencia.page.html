@@ -4,26 +4,29 @@
   
   <div class="titulo1">
     <div class="user-info">
-      <p>Nombre: {{ nombre }}</p>
-      <p>Correo Electrónico: {{ correoElectronico }}</p>
+      <p>Nombre: {{ nombre + ' ' + apellido }}</p>
+      <p>Correo Electrónico: {{ email }}</p>
     </div>
-  </div>
- 
-  <div class="texto1">
-    <div class="subTexto1"><strong>Sede:</strong> Antonio Varas</div>
-    <div class="subTexto1"><strong>Selecciona el dia para registrar la asistencia</strong></div>
-  </div>
+  </div>     
 
 
-
-   <div class="calendario">
-    <ion-datetime></ion-datetime>
-   </div>
    <h1 class="titleListaCursos">Cursos</h1>
-    <div class="listaCursos" *ngFor="let objeto of objetos" (click)="navegarADetalle(objeto.id, objeto.nombre, objeto.seccion, objeto.sala, objeto.horario)">
-        {{ objeto.nombre }} {{ objeto.horario }}<br>Sección:{{objeto.seccion}} <br>Sala:{{objeto.sala}}
+   <ion-content>
+    <div class="materias-container">
+      <div *ngFor="let materia of materias" class="materia-card">
+        <h3>Materia: {{ materia.nombre }}</h3>
+        <ul class="secciones-list">
+          <li *ngFor="let seccion of materia.secciones" class="seccion-card" (click)="verDetallesSeccion(seccion)">
+            <p>Sección: {{ seccion.seccion }}</p>
+            <p>Horario de inicio: {{ seccion.horario_inicio }}</p>
+            <p>Horario de fin: {{ seccion.horario_fin }}</p>
+          </li>
+        </ul>
+      </div>
     </div>
- 
+  </ion-content>
+  
+  
 </ion-content>
 
 
