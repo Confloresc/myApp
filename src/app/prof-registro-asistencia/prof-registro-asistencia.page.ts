@@ -23,6 +23,8 @@ constructor(  private router: Router,
   private route: ActivatedRoute,
   private authService: AuthenticationService) { }
 
+
+
   async presentAlert() {
     const alert = await this.alertController.create({
 
@@ -35,9 +37,11 @@ constructor(  private router: Router,
 
     ngOnInit() {
       this.route.queryParams.subscribe((params) => {
+
         this.email = params['email'];
         this.nombre = params['nombre'];
         this.apellido = params['apellido'];
+
         const email = params['email'];
         if (email) {
           this.authService.get_user_info(email).subscribe((userData: any) => {
