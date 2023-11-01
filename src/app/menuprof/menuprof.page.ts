@@ -30,7 +30,6 @@ export class MenuprofPage implements OnInit {
           if (userData) {
             this.nombre = userData.nombre;
             this.apellido = userData.apellido;
-            // Realiza acciones adicionales según los datos del usuario.
           }
         });
       } else {
@@ -45,7 +44,8 @@ export class MenuprofPage implements OnInit {
     this.navCtrl.navigateForward('/prof-registro-asistencia', {
       queryParams: {
         nombre: this.nombre,
-        correoElectronico: this.email,
+        apellido: this.apellido,
+        email: this.email,
       },
     });
   }
@@ -55,7 +55,8 @@ export class MenuprofPage implements OnInit {
     this.navCtrl.navigateForward('/cursos', {
       queryParams: {
         nombre: this.nombre,
-        correoElectronico: this.email,
+        apellido: this.apellido,
+        email: this.email,
       },
     });
   }
