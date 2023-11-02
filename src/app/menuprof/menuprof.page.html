@@ -14,18 +14,24 @@
   </div>
 
 <div class="botones">
+
+  <ion-img src="assets/lista.png"></ion-img>
+
   <ion-button class="texto-izquierda" fill="clear" expand="full" routerLink="/prof-registro-asistencia" (click)="navigateAsistencia()">
-    <ion-icon name="square" style="color: rgb(239, 232, 155);"></ion-icon>
     Registrar asistencia
   </ion-button>
+  
+  <ion-img src="assets/lupa.png"></ion-img>
+
   <ion-button class="texto-izquierda" fill="clear" expand="full" routerLink="/cursos" (click)="navigateAsistenciareg()">
-    <ion-icon name="square" style="color: rgb(239, 232, 155);"></ion-icon>
     Revisar asistencia
   </ion-button>
+
+  
 </div>
 
 
-<ion-card class="alertaProf">
+<ion-card class="alertaProf" animation="slide-in-up">
   <ion-card-content>Tienes una clase pendiente</ion-card-content>
 </ion-card>
 
