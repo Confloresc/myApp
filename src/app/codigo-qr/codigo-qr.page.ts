@@ -42,9 +42,10 @@ export class CodigoQRPage implements OnInit {
       this.sala = params['sala'];
       this.horario = params['horario'];
   
-      // Establece el valor de 'text' como el 'id' de la sección con un hash
-      this.text = this.seccion + Math.random().toString(36).substr(2, 5);
+      // Establece el valor de 'text' como el 'id' de la sección
+      this.text = `Clase: ${this.nombre}, ID: ${this.id}, Sección: ${this.seccion}`;
     });
   }
+  
   
 }
