@@ -76,11 +76,20 @@ constructor(  private router: Router,
 
   verDetallesSeccion(seccion: any) {
     // Puedes redirigir a una página de detalles y pasar la información de la sección
-    this.router.navigate(['/detalles-seccion'], { state: { seccion } });
+    // this.router.navigate(['/detalles-seccion'], { state: { seccion } });
+
+    // Redireccionar a la página de código QR
+    this.router.navigate(['/codigo-qr'], {
+      queryParams: {
+        id: seccion.id,
+        nombre: seccion.nombre,
+        seccion: seccion.seccion,
+        sala: seccion.sala,
+        horario: seccion.horario,
+      }
+    });
 
   }
-  
-  
 
 }
 

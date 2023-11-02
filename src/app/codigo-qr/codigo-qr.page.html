@@ -1,15 +1,14 @@
 <ion-content [fullscreen]="true">
   <h2>Clase</h2>
-  <p>ID: {{ id }}</p>
-  <p>Curso: {{ nombre }}</p>
-  <p>Sección: {{ seccion }}</p>
-  <p>Horario: {{ horario }}</p>
+  <p>ID: 12345</p>
+  <p>Curso: Matemáticas I</p>
+  <p>Sección: 1</p>
+  <p>Horario: 10:00 - 12:00</p>
 
   <ion-text color="primary">
     <h1>GENERAR QR</h1>
   </ion-text>
-  
-  <!-- Aquí utilizamos *ngIf para mostrar el QR solo si 'text' tiene un valor -->
+
   <div *ngIf="text">
     <qrcode [qrdata]="text" [width]="400"></qrcode>
   </div>
