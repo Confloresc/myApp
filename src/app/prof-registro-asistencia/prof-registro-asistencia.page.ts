@@ -23,6 +23,8 @@ constructor(  private router: Router,
   private route: ActivatedRoute,
   private authService: AuthenticationService) { }
 
+
+
   async presentAlert() {
     const alert = await this.alertController.create({
 
@@ -35,9 +37,11 @@ constructor(  private router: Router,
 
     ngOnInit() {
       this.route.queryParams.subscribe((params) => {
+
         this.email = params['email'];
         this.nombre = params['nombre'];
         this.apellido = params['apellido'];
+
         const email = params['email'];
         if (email) {
           this.authService.get_user_info(email).subscribe((userData: any) => {
@@ -72,11 +76,20 @@ constructor(  private router: Router,
 
   verDetallesSeccion(seccion: any) {
     // Puedes redirigir a una página de detalles y pasar la información de la sección
-    this.router.navigate(['/detalles-seccion'], { state: { seccion } });
+    // this.router.navigate(['/detalles-seccion'], { state: { seccion } });
+
+    // Redireccionar a la página de código QR
+    this.router.navigate(['/codigo-qr'], {
+      queryParams: {
+        id: seccion.id,
+        nombre: seccion.nombre,
+        seccion: seccion.seccion,
+        sala: seccion.sala,
+        horario: seccion.horario,
+      }
+    });
 
   }
-  
-  
 
 }
 

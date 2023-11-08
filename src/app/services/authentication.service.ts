@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthenticationService {
+  [x: string]: any;
   get_user_info(email: string): Observable<any> {
     const url = `${this.apiUrl}/users/${encodeURIComponent(email)}`;
     return this.http.get(url);

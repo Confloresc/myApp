@@ -35,3 +35,21 @@ ion-toolbar.custom-toolbar {
     padding-top: 15%;
     text-align: center;
 }
+
+.h2 {
+  padding-left: 5%;
+  color: rgb(255, 196, 0);
+  font-weight: bold;
+}
+
+p {
+  padding-left: 5%;
+  font-size: 80%; /* Cambia el valor según tus necesidades */
+}
+
+.centered-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}

@@ -10,6 +10,7 @@
   </div>     
 
 
+
   <h1 class="titleListaCursos">Cursos</h1>
   <ion-content>
     <div class="materias-container">
@@ -21,7 +22,11 @@
             <p>Horario de inicio: {{ seccion.horario_inicio }}</p>
             <p>Horario de fin: {{ seccion.horario_fin }}</p>
           </div>
+          <input type="hidden" data-id="{{ seccion.id }}" />
         </ion-button>
+        
+        
+        
       </div>
     </div>
   </ion-content>
