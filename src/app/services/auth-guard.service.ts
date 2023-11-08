@@ -10,9 +10,9 @@ export class AuthGuard implements CanActivate {
     const email = 'example@example.com'; // Reemplaza esto con el email del usuario autenticado o cómo obtienes el email del usuario
     const isAuthenticated = this.authService.isAuthenticatedUser(email);
 
-    if (!isAuthenticated) {
-      this.router.navigate(['/login']);
-      return false;
+    if (!isAuthenticated || (!this.authService['isUserProfessor'](email) && !this.authService['isUserStudent'](email))) {
+    this.router.navigate(['/login']);
+    return false;
     }
 
     return true;
