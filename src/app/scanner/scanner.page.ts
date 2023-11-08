@@ -50,8 +50,9 @@ export class ScannerPage implements OnInit {
       this.presentAlert();
       return;
     }
-    const { barcodes } = await BarcodeScanner.scan();
-    this.barcodes.push(...barcodes);
+  
+    const barcodes = await BarcodeScanner.scan();
+    this.router.navigateByUrl('/login');
   }
 
   async requestPermissions(): Promise<boolean> {
