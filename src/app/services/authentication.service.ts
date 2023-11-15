@@ -17,7 +17,7 @@ export class AuthenticationService {
   }
 
   login(email: string, password: string): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/login`, { email, password });
+    return this.http.post<any>(`${this.apiUrl}/login`, { email, password }, { withCredentials: true });
   }
 
   // Método para cerrar sesión
@@ -27,12 +27,30 @@ export class AuthenticationService {
 
   isAuthenticatedUser(): Observable<boolean> {
     if (this.userEmail) {
-      return this.http.get<{ isAuthenticated: boolean }>(`${this.apiUrl}/authenticate?email=${this.userEmail}`).pipe(
-        map((response) => response.isAuthenticated),
-        catchError((error) => of(false))
+      return this.http.get<{ user_type: string }>(`${this.apiUrl}/authenticate?email=${this.userEmail}`).pipe(
+        map((response) => {
+          this.handleUserType(response.user_type);
+          return true; // Indica que la autenticación fue exitosa
+        }),
+        catchError((error) => {
+          this.handleUserType(null); // Restablece el tipo de usuario en caso de error
+          return of(false);
+        })
       );
     } else {
       return of(false); // El usuario no ha iniciado sesión, por lo tanto, no está autenticado.
+    }
+  }
+
+  private handleUserType(userType: string | null) {
+    // Implementa la lógica para manejar el tipo de usuario (por ejemplo, redirigir a diferentes rutas).
+    // Aquí puedes actualizar la lógica según tus necesidades.
+    if (userType === 'profesor') {
+      // Redirige a la ruta del profesor
+    } else if (userType === 'alumno') {
+      // Redirige a la ruta del alumno
+    } else {
+      // Maneja otros casos si es necesario
     }
   }
 
