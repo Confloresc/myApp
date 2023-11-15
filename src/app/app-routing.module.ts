@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { NotFoundPage } from './not-found/not-found.page'; // Importa la página NotFoundPage
 import { AuthGuard } from './services/auth-guard.service';
 
 const routes: Routes = [
   {
     path: '',
     redirectTo: 'login',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'prof-registro-asistencia',
@@ -40,12 +39,14 @@ const routes: Routes = [
   },
   {
     path: 'scanner',
-    loadChildren: () => import('./scanner/scanner.module').then(m => m.ScannerPageModule)
+    loadChildren: () => import('./scanner/scanner.module').then(m => m.ScannerPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'menuprof',
     loadChildren: () => import('./menuprof/menuprof.module').then(m => m.MenuprofPageModule),
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    data: { debugInfo: 'Menuprof Route' } 
   },
   {
     path: 'cursos',

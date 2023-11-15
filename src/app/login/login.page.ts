@@ -20,23 +20,23 @@ export class LoginPage {
   ) {}
 
 
-
   login() {
-    this.authService.login(this.email, this.password).subscribe(
-      (response) => {
+    const subscription = this.authService.login(this.email, this.password).subscribe({
+      next: (response: any) => {
         if (response.success) {
-
+          const userEmailAddress = this.email;
+          this.authService.setUserEmail(userEmailAddress);
   
           if (response.user_type === 'profesor') {
             this.router.navigate(['/menuprof'], {
               queryParams: {
-                email: this.email, // Asegúrate de pasar el correo electrónico si es necesario
+                email: this.email,
               },
             });
           } else if (response.user_type === 'alumno') {
             this.router.navigate(['/scanner'], {
               queryParams: {
-                email: this.email, // Asegúrate de pasar el correo electrónico si es necesario
+                email: this.email,
               },
             });
           }
@@ -44,14 +44,12 @@ export class LoginPage {
           // Muestra un mensaje de error al usuario
         }
       },
-      (error) => {
+      error: (error: any) => {
         // Manejar errores (mostrar mensajes de error, etc.).
       }
-    );
+    });
+
   }
-  
-
-
   
   validatePassword() {
     // Implementa la lógica para validar la contraseña aquí
