@@ -11,7 +11,7 @@ export class LoginPage {
   email: string = '';
   password: string = '';
   isPasswordValid: boolean = false; // Agregamos una propiedad para validar la contraseña
-  validEmailPattern: RegExp = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
+  validEmailPattern: RegExp = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;                                                   
 
 
   constructor(
