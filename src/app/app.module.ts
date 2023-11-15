@@ -12,6 +12,7 @@ import { AuthenticationService } from './services/authentication.service';
 
 @NgModule({
   declarations: [AppComponent],
+
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, IonicStorageModule.forRoot(), HttpClientModule],
   providers: [AuthenticationService, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
