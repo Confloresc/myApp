@@ -9,40 +9,40 @@
 9        android:targetSdkVersion="33" />
 10
 11    <uses-feature
-11-->D:\Desarrollo\myApp\myApp\android\app\src\main\AndroidManifest.xml:4:3-83
+11-->D:\Desarrollo\myApp\android\app\src\main\AndroidManifest.xml:4:3-83
 12        android:name="android.hardware.camera"
-12-->D:\Desarrollo\myApp\myApp\android\app\src\main\AndroidManifest.xml:4:17-55
+12-->D:\Desarrollo\myApp\android\app\src\main\AndroidManifest.xml:4:17-55
 13        android:required="false" />
-13-->D:\Desarrollo\myApp\myApp\android\app\src\main\AndroidManifest.xml:4:56-80
+13-->D:\Desarrollo\myApp\android\app\src\main\AndroidManifest.xml:4:56-80
 14
 15    <!-- Permissions -->
 16
 17    <uses-permission android:name="android.permission.INTERNET" />
-17-->D:\Desarrollo\myApp\myApp\android\app\src\main\AndroidManifest.xml:8:3-65
-17-->D:\Desarrollo\myApp\myApp\android\app\src\main\AndroidManifest.xml:8:20-62
+17-->D:\Desarrollo\myApp\android\app\src\main\AndroidManifest.xml:8:3-65
+17-->D:\Desarrollo\myApp\android\app\src\main\AndroidManifest.xml:8:20-62
 18    <!-- To get access to the camera. -->
 19    <uses-permission android:name="android.permission.CAMERA" />
-19-->D:\Desarrollo\myApp\myApp\android\app\src\main\AndroidManifest.xml:10:3-63
-19-->D:\Desarrollo\myApp\myApp\android\app\src\main\AndroidManifest.xml:10:20-60
+19-->D:\Desarrollo\myApp\android\app\src\main\AndroidManifest.xml:10:3-63
+19-->D:\Desarrollo\myApp\android\app\src\main\AndroidManifest.xml:10:20-60
 20
 21    <!-- To get access to the flashlight. -->
 22    <uses-permission android:name="android.permission.FLASHLIGHT" />
-22-->D:\Desarrollo\myApp\myApp\android\app\src\main\AndroidManifest.xml:13:3-66
-22-->D:\Desarrollo\myApp\myApp\android\app\src\main\AndroidManifest.xml:13:20-64
+22-->D:\Desarrollo\myApp\android\app\src\main\AndroidManifest.xml:13:3-66
+22-->D:\Desarrollo\myApp\android\app\src\main\AndroidManifest.xml:13:20-64
 23
 24    <queries>
-24-->[:capacitor-camera] D:\Desarrollo\myApp\myApp\node_modules\@capacitor\camera\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-11:15
+24-->[:capacitor-camera] D:\Desarrollo\myApp\node_modules\@capacitor\camera\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-11:15
 25        <intent>
-25-->[:capacitor-camera] D:\Desarrollo\myApp\myApp\node_modules\@capacitor\camera\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:9-10:18
+25-->[:capacitor-camera] D:\Desarrollo\myApp\node_modules\@capacitor\camera\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:9-10:18
 26            <action android:name="android.media.action.IMAGE_CAPTURE" />
-26-->[:capacitor-camera] D:\Desarrollo\myApp\myApp\node_modules\@capacitor\camera\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:13-73
-26-->[:capacitor-camera] D:\Desarrollo\myApp\myApp\node_modules\@capacitor\camera\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:21-70
+26-->[:capacitor-camera] D:\Desarrollo\myApp\node_modules\@capacitor\camera\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:13-73
+26-->[:capacitor-camera] D:\Desarrollo\myApp\node_modules\@capacitor\camera\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:21-70
 27        </intent>
 28    </queries>
 29
 30    <uses-permission android:name="android.permission.VIBRATE" />
-30-->[:capacitor-haptics] D:\Desarrollo\myApp\myApp\node_modules\@capacitor\haptics\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-66
-30-->[:capacitor-haptics] D:\Desarrollo\myApp\myApp\node_modules\@capacitor\haptics\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:7:22-63
+30-->[:capacitor-haptics] D:\Desarrollo\myApp\node_modules\@capacitor\haptics\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-66
+30-->[:capacitor-haptics] D:\Desarrollo\myApp\node_modules\@capacitor\haptics\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:7:22-63
 31
 32    <permission
 32-->[androidx.core:core:1.10.0] C:\Users\gonza\.gradle\caches\transforms-3\af9d7449be3d755a667c1192a058cff7\transformed\core-1.10.0\AndroidManifest.xml:22:5-24:47
@@ -60,82 +60,82 @@
 38-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\gonza\.gradle\caches\transforms-3\829c565a68aba9a9294dd0ecd2c655db\transformed\transport-backend-cct-2.3.3\AndroidManifest.xml:25:22-76
 39
 40    <application
-40-->D:\Desarrollo\myApp\myApp\android\app\src\main\AndroidManifest.xml:15:3-57:17
+40-->D:\Desarrollo\myApp\android\app\src\main\AndroidManifest.xml:15:3-57:17
 41        android:allowBackup="true"
-41-->D:\Desarrollo\myApp\myApp\android\app\src\main\AndroidManifest.xml:17:5-31
+41-->D:\Desarrollo\myApp\android\app\src\main\AndroidManifest.xml:17:5-31
 42        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 42-->[androidx.core:core:1.10.0] C:\Users\gonza\.gradle\caches\transforms-3\af9d7449be3d755a667c1192a058cff7\transformed\core-1.10.0\AndroidManifest.xml:28:18-86
 43        android:debuggable="true"
 44        android:extractNativeLibs="true"
 45        android:hardwareAccelerated="true"
-45-->D:\Desarrollo\myApp\myApp\android\app\src\main\AndroidManifest.xml:16:5-39
+45-->D:\Desarrollo\myApp\android\app\src\main\AndroidManifest.xml:16:5-39
 46        android:icon="@mipmap/ic_launcher"
-46-->D:\Desarrollo\myApp\myApp\android\app\src\main\AndroidManifest.xml:18:5-39
+46-->D:\Desarrollo\myApp\android\app\src\main\AndroidManifest.xml:18:5-39
 47        android:label="@string/app_name"
-47-->D:\Desarrollo\myApp\myApp\android\app\src\main\AndroidManifest.xml:19:5-37
+47-->D:\Desarrollo\myApp\android\app\src\main\AndroidManifest.xml:19:5-37
 48        android:roundIcon="@mipmap/ic_launcher_round"
-48-->D:\Desarrollo\myApp\myApp\android\app\src\main\AndroidManifest.xml:20:5-50
+48-->D:\Desarrollo\myApp\android\app\src\main\AndroidManifest.xml:20:5-50
 49        android:supportsRtl="true"
-49-->D:\Desarrollo\myApp\myApp\android\app\src\main\AndroidManifest.xml:21:5-31
+49-->D:\Desarrollo\myApp\android\app\src\main\AndroidManifest.xml:21:5-31
 50        android:testOnly="true"
 51        android:theme="@style/AppTheme" >
-51-->D:\Desarrollo\myApp\myApp\android\app\src\main\AndroidManifest.xml:22:5-36
+51-->D:\Desarrollo\myApp\android\app\src\main\AndroidManifest.xml:22:5-36
 52        <activity
-52-->D:\Desarrollo\myApp\myApp\android\app\src\main\AndroidManifest.xml:24:5-38:16
+52-->D:\Desarrollo\myApp\android\app\src\main\AndroidManifest.xml:24:5-38:16
 53            android:name="com.myApp.MainActivity"
-53-->D:\Desarrollo\myApp\myApp\android\app\src\main\AndroidManifest.xml:27:7-44
+53-->D:\Desarrollo\myApp\android\app\src\main\AndroidManifest.xml:27:7-44
 54            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode"
-54-->D:\Desarrollo\myApp\myApp\android\app\src\main\AndroidManifest.xml:26:7-123
+54-->D:\Desarrollo\myApp\android\app\src\main\AndroidManifest.xml:26:7-123
 55            android:exported="true"
-55-->D:\Desarrollo\myApp\myApp\android\app\src\main\AndroidManifest.xml:25:7-30
+55-->D:\Desarrollo\myApp\android\app\src\main\AndroidManifest.xml:25:7-30
 56            android:label="@string/title_activity_main"
-56-->D:\Desarrollo\myApp\myApp\android\app\src\main\AndroidManifest.xml:28:7-50
+56-->D:\Desarrollo\myApp\android\app\src\main\AndroidManifest.xml:28:7-50
 57            android:launchMode="singleTask"
-57-->D:\Desarrollo\myApp\myApp\android\app\src\main\AndroidManifest.xml:30:7-38
+57-->D:\Desarrollo\myApp\android\app\src\main\AndroidManifest.xml:30:7-38
 58            android:theme="@style/AppTheme.NoActionBarLaunch" >
-58-->D:\Desarrollo\myApp\myApp\android\app\src\main\AndroidManifest.xml:29:7-56
+58-->D:\Desarrollo\myApp\android\app\src\main\AndroidManifest.xml:29:7-56
 59            <intent-filter>
-59-->D:\Desarrollo\myApp\myApp\android\app\src\main\AndroidManifest.xml:33:7-36:23
+59-->D:\Desarrollo\myApp\android\app\src\main\AndroidManifest.xml:33:7-36:23
 60                <action android:name="android.intent.action.MAIN" />
-60-->D:\Desarrollo\myApp\myApp\android\app\src\main\AndroidManifest.xml:34:9-61
-60-->D:\Desarrollo\myApp\myApp\android\app\src\main\AndroidManifest.xml:34:17-58
+60-->D:\Desarrollo\myApp\android\app\src\main\AndroidManifest.xml:34:9-61
+60-->D:\Desarrollo\myApp\android\app\src\main\AndroidManifest.xml:34:17-58
 61
 62                <category android:name="android.intent.category.LAUNCHER" />
-62-->D:\Desarrollo\myApp\myApp\android\app\src\main\AndroidManifest.xml:35:9-69
-62-->D:\Desarrollo\myApp\myApp\android\app\src\main\AndroidManifest.xml:35:19-66
+62-->D:\Desarrollo\myApp\android\app\src\main\AndroidManifest.xml:35:9-69
+62-->D:\Desarrollo\myApp\android\app\src\main\AndroidManifest.xml:35:19-66
 63            </intent-filter>
 64        </activity>
 65
 66        <provider
 67            android:name="androidx.core.content.FileProvider"
-67-->D:\Desarrollo\myApp\myApp\android\app\src\main\AndroidManifest.xml:41:7-56
+67-->D:\Desarrollo\myApp\android\app\src\main\AndroidManifest.xml:41:7-56
 68            android:authorities="com.myApp.fileprovider"
-68-->D:\Desarrollo\myApp\myApp\android\app\src\main\AndroidManifest.xml:42:7-58
+68-->D:\Desarrollo\myApp\android\app\src\main\AndroidManifest.xml:42:7-58
 69            android:exported="false"
-69-->D:\Desarrollo\myApp\myApp\android\app\src\main\AndroidManifest.xml:43:7-31
+69-->D:\Desarrollo\myApp\android\app\src\main\AndroidManifest.xml:43:7-31
 70            android:grantUriPermissions="true" >
-70-->D:\Desarrollo\myApp\myApp\android\app\src\main\AndroidManifest.xml:44:7-41
+70-->D:\Desarrollo\myApp\android\app\src\main\AndroidManifest.xml:44:7-41
 71            <meta-data
-71-->D:\Desarrollo\myApp\myApp\android\app\src\main\AndroidManifest.xml:46:7-48:46
+71-->D:\Desarrollo\myApp\android\app\src\main\AndroidManifest.xml:46:7-48:46
 72                android:name="android.support.FILE_PROVIDER_PATHS"
-72-->D:\Desarrollo\myApp\myApp\android\app\src\main\AndroidManifest.xml:47:9-59
+72-->D:\Desarrollo\myApp\android\app\src\main\AndroidManifest.xml:47:9-59
 73                android:resource="@xml/file_paths" />
-73-->D:\Desarrollo\myApp\myApp\android\app\src\main\AndroidManifest.xml:48:9-43
+73-->D:\Desarrollo\myApp\android\app\src\main\AndroidManifest.xml:48:9-43
 74        </provider>
 75
 76        <!-- Disable screenview tracking -->
 77        <meta-data
-77-->D:\Desarrollo\myApp\myApp\android\app\src\main\AndroidManifest.xml:53:5-107
+77-->D:\Desarrollo\myApp\android\app\src\main\AndroidManifest.xml:53:5-107
 78            android:name="google_analytics_automatic_screen_reporting_enabled"
-78-->D:\Desarrollo\myApp\myApp\android\app\src\main\AndroidManifest.xml:53:16-82
+78-->D:\Desarrollo\myApp\android\app\src\main\AndroidManifest.xml:53:16-82
 79            android:value="false" />
-79-->D:\Desarrollo\myApp\myApp\android\app\src\main\AndroidManifest.xml:53:83-104
+79-->D:\Desarrollo\myApp\android\app\src\main\AndroidManifest.xml:53:83-104
 80        <meta-data
-80-->D:\Desarrollo\myApp\myApp\android\app\src\main\AndroidManifest.xml:54:5-96
+80-->D:\Desarrollo\myApp\android\app\src\main\AndroidManifest.xml:54:5-96
 81            android:name="com.google.mlkit.vision.DEPENDENCIES"
-81-->D:\Desarrollo\myApp\myApp\android\app\src\main\AndroidManifest.xml:54:16-67
+81-->D:\Desarrollo\myApp\android\app\src\main\AndroidManifest.xml:54:16-67
 82            android:value="barcode_ui" />
-82-->D:\Desarrollo\myApp\myApp\android\app\src\main\AndroidManifest.xml:54:68-94
+82-->D:\Desarrollo\myApp\android\app\src\main\AndroidManifest.xml:54:68-94
 83
 84        <!--
 85        This activity is an invisible delegate activity to start scanner activity
