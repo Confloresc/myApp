@@ -23,33 +23,38 @@ export class LoginPage {
   login() {
     const subscription = this.authService.login(this.email, this.password).subscribe({
       next: (response: any) => {
-        if (response.success) {
+        console.log('Login response:', response);
+  
+        if (response && response.success) {
           const userEmailAddress = this.email;
           this.authService.setUserEmail(userEmailAddress);
   
           if (response.user_type === 'profesor') {
+            console.log('Redirigiendo a /menuprof');
             this.router.navigate(['/menuprof'], {
-              queryParams: {
-                email: this.email,
-              },
+              queryParams: { email: this.email }
             });
           } else if (response.user_type === 'alumno') {
+            console.log('Redirigiendo a /scanner');
             this.router.navigate(['/scanner'], {
-              queryParams: {
-                email: this.email,
-              },
+              queryParams: { email: this.email }
             });
+          } else {
+            console.error('Tipo de usuario no reconocido:', response.user_type);
+            // Manejar el caso en que el tipo de usuario no es 'profesor' ni 'alumno'
           }
         } else {
-          // Muestra un mensaje de error al usuario
+          console.error('Inicio de sesión fallido. Respuesta del servidor:', response);
+          // Manejar el caso en que response.success no está presente o es false
         }
       },
       error: (error: any) => {
+        console.error('Error during login:', error);
         // Manejar errores (mostrar mensajes de error, etc.).
       }
     });
-
   }
+
   
   validatePassword() {
     // Implementa la lógica para validar la contraseña aquí

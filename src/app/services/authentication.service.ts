@@ -38,7 +38,7 @@ export class AuthenticationService {
 
   // Define el método get_user_info que recibe el correo electrónico como argumento
   get_user_info(email: string): Observable<any> {
-    const url = `${this.apiUrl}/users/${encodeURIComponent(email)}`;
+    const url = `${this.apiUrl}users/${encodeURIComponent(email)}`;
     return this.http.get(url);
   }
 }
