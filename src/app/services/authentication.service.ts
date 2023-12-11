@@ -9,7 +9,7 @@ import { catchError, map } from 'rxjs/operators';
 export class AuthenticationService {
   constructor(private http: HttpClient) {}
 
-  private apiUrl = 'http://13.51.201.225';
+  private apiUrl = 'http://127.0.0.1:8000';
   private userEmail: string | undefined;
 
   setUserEmail(email: string) {
